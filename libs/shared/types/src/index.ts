@@ -23,6 +23,7 @@ export { Invoice } from './lib/invoice';
 export { SearchQuery, SearchResult } from './lib/search';
 export { AnalyticsEvent } from './lib/analytics';
 
+
 // === Global Types ===
-export * from './lib/express';
+
 

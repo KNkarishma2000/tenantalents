@@ -1,57 +1,103 @@
+// === PRISMA GENERATOR ===
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
+// === DATABASE SOURCE ===
+// === DATABASE SOURCE ===
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Image {
-  id      String  @id @default(uuid()) @map("_id") @db.Uuid
-  file_id String  @unique
-  url     String
-  userId  String? @unique @db.Uuid 
-  user    User?   @relation(fields: [userId], references: [id])
+// === ENUMS ===
+
+/// Approval status for vendor onboarding and activity
+enum VendorStatus {
+  PENDING     // Default status when vendor registers
+  APPROVED    // Admin has approved the vendor
+  REJECTED    // Admin rejected the vendor application
+  SUSPENDED   // Temporarily blocked by admin
 }
 
-model User {
-  id        String   @id @default(uuid()) @map("_id") @db.Uuid
+// === MODELS ===
+
+/// Represents a vendor/seller profile in the marketplace
+model Vendor {
+  id        String       @id @default(uuid())
   name      String
-  email     String   @unique
-  password  String?
-  role      UserRole
-  following String[] @default([]) @db.Text
-  avatar    Image?
-  seller    Seller?  @relation(fields: [sellerId], references: [id])
-  sellerId  String?  @unique @db.Uuid
-  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(6)
+  email     String       @unique
+  phone     String?
+  storeName String
+  storeSlug String       @unique
+  logoUrl   String?
+  documents String[]     // KYC/GST document paths in MinIO
+  status    VendorStatus @default(PENDING)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  // === RELATIONS ===
+  userId    String
+  user      User         @relation(fields: [userId], references: [id])
+  products  Product[]    @relation("VendorProducts")
+  orders    Order[]      @relation("VendorOrders")
+  payouts   Payout[]     @relation("VendorPayouts")
+  invoices  Invoice[]    @relation("VendorInvoices")
+  ratings   Rating[]     @relation("VendorRatings")
 }
 
-model Seller {
-  id         String        @id @default(uuid()) @map("_id") @db.Uuid
-  name       String
-  email      String        @unique
-  phone_number String
-  country    String
-  password   String
-  stripeId   String?
-  status     SellerStatus  @default(PENDING)
-  user       User?
-  createdAt  DateTime      @default(now())
-  updatedAt  DateTime      @updatedAt
+/// Represents a registered user (basic structure; extend as needed)
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  name     String
+  password String
+  role     String     // e.g. ADMIN, VENDOR, CUSTOMER, etc.
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // === RELATIONS ===
+  vendors  Vendor[]
 }
 
-enum SellerStatus {
-  PENDING
-  APPROVED
-  REJECTED
+/// Product listed by a vendor
+model Product {
+  id       String @id @default(uuid())
+  name     String
+  price    Float
+  vendorId String
+  vendor   Vendor @relation("VendorProducts", fields: [vendorId], references: [id])
 }
 
-enum UserRole {
-  USER
-  VENDOR
-  ADMIN
+/// Order fulfilled by a vendor
+model Order {
+  id       String @id @default(uuid())
+  total    Float
+  vendorId String
+  vendor   Vendor @relation("VendorOrders", fields: [vendorId], references: [id])
+}
+
+/// Payouts issued to a vendor (e.g., revenue share)
+model Payout {
+  id       String @id @default(uuid())
+  amount   Float
+  vendorId String
+  vendor   Vendor @relation("VendorPayouts", fields: [vendorId], references: [id])
+}
+
+/// Invoice generated for vendor orders
+model Invoice {
+  id       String @id @default(uuid())
+  fileUrl  String
+  vendorId String
+  vendor   Vendor @relation("VendorInvoices", fields: [vendorId], references: [id])
+}
+
+/// Buyer rating for a vendor
+model Rating {
+  id       String @id @default(uuid())
+  score    Int
+  comment  String
+  vendorId String
+  vendor   Vendor @relation("VendorRatings", fields: [vendorId], references: [id])
 }

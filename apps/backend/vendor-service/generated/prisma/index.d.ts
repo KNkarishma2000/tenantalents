@@ -24,22 +24,22 @@ export type Image = $Result.DefaultSelection<Prisma.$ImagePayload>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Seller
+ * Model vendor
  * 
  */
-export type Seller = $Result.DefaultSelection<Prisma.$SellerPayload>
+export type vendor = $Result.DefaultSelection<Prisma.$vendorPayload>
 
 /**
  * Enums
  */
 export namespace $Enums {
-  export const SellerStatus: {
+  export const vendorStatus: {
   PENDING: 'PENDING',
   APPROVED: 'APPROVED',
   REJECTED: 'REJECTED'
 };
 
-export type SellerStatus = (typeof SellerStatus)[keyof typeof SellerStatus]
+export type vendorStatus = (typeof vendorStatus)[keyof typeof vendorStatus]
 
 
 export const UserRole: {
@@ -52,9 +52,9 @@ export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 }
 
-export type SellerStatus = $Enums.SellerStatus
+export type vendorStatus = $Enums.vendorStatus
 
-export const SellerStatus: typeof $Enums.SellerStatus
+export const vendorStatus: typeof $Enums.vendorStatus
 
 export type UserRole = $Enums.UserRole
 
@@ -206,14 +206,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.seller`: Exposes CRUD operations for the **Seller** model.
+   * `prisma.vendor`: Exposes CRUD operations for the **vendor** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Sellers
-    * const sellers = await prisma.seller.findMany()
+    * // Fetch zero or more Vendors
+    * const vendors = await prisma.vendor.findMany()
     * ```
     */
-  get seller(): Prisma.SellerDelegate<ExtArgs, ClientOptions>;
+  get vendor(): Prisma.vendorDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -656,7 +656,7 @@ export namespace Prisma {
   export const ModelName: {
     Image: 'Image',
     User: 'User',
-    Seller: 'Seller'
+    vendor: 'vendor'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -675,7 +675,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "image" | "user" | "seller"
+      modelProps: "image" | "user" | "vendor"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -827,77 +827,77 @@ export namespace Prisma {
           }
         }
       }
-      Seller: {
-        payload: Prisma.$SellerPayload<ExtArgs>
-        fields: Prisma.SellerFieldRefs
+      vendor: {
+        payload: Prisma.$vendorPayload<ExtArgs>
+        fields: Prisma.vendorFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.SellerFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload> | null
+            args: Prisma.vendorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.SellerFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>
+            args: Prisma.vendorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>
           }
           findFirst: {
-            args: Prisma.SellerFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload> | null
+            args: Prisma.vendorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.SellerFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>
+            args: Prisma.vendorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>
           }
           findMany: {
-            args: Prisma.SellerFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>[]
+            args: Prisma.vendorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>[]
           }
           create: {
-            args: Prisma.SellerCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>
+            args: Prisma.vendorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>
           }
           createMany: {
-            args: Prisma.SellerCreateManyArgs<ExtArgs>
+            args: Prisma.vendorCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.SellerCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>[]
+            args: Prisma.vendorCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>[]
           }
           delete: {
-            args: Prisma.SellerDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>
+            args: Prisma.vendorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>
           }
           update: {
-            args: Prisma.SellerUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>
+            args: Prisma.vendorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>
           }
           deleteMany: {
-            args: Prisma.SellerDeleteManyArgs<ExtArgs>
+            args: Prisma.vendorDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.SellerUpdateManyArgs<ExtArgs>
+            args: Prisma.vendorUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.SellerUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>[]
+            args: Prisma.vendorUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>[]
           }
           upsert: {
-            args: Prisma.SellerUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SellerPayload>
+            args: Prisma.vendorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$vendorPayload>
           }
           aggregate: {
-            args: Prisma.SellerAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateSeller>
+            args: Prisma.VendorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVendor>
           }
           groupBy: {
-            args: Prisma.SellerGroupByArgs<ExtArgs>
-            result: $Utils.Optional<SellerGroupByOutputType>[]
+            args: Prisma.vendorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VendorGroupByOutputType>[]
           }
           count: {
-            args: Prisma.SellerCountArgs<ExtArgs>
-            result: $Utils.Optional<SellerCountAggregateOutputType> | number
+            args: Prisma.vendorCountArgs<ExtArgs>
+            result: $Utils.Optional<VendorCountAggregateOutputType> | number
           }
         }
       }
@@ -995,7 +995,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     image?: ImageOmit
     user?: UserOmit
-    seller?: SellerOmit
+    vendor?: vendorOmit
   }
 
   /* Types for Logging */
@@ -2409,7 +2409,7 @@ export namespace Prisma {
     name: "User"
     objects: {
       avatar: Prisma.$ImagePayload<ExtArgs> | null
-      seller: Prisma.$SellerPayload<ExtArgs> | null
+      seller: Prisma.$vendorPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2816,7 +2816,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     avatar<T extends User$avatarArgs<ExtArgs> = {}>(args?: Subset<T, User$avatarArgs<ExtArgs>>): Prisma__ImageClient<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    seller<T extends User$sellerArgs<ExtArgs> = {}>(args?: Subset<T, User$sellerArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    seller<T extends User$sellerArgs<ExtArgs> = {}>(args?: Subset<T, User$sellerArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3274,18 +3274,18 @@ export namespace Prisma {
    */
   export type User$sellerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
-    where?: SellerWhereInput
+    include?: vendorInclude<ExtArgs> | null
+    where?: vendorWhereInput
   }
 
   /**
@@ -3308,16 +3308,16 @@ export namespace Prisma {
 
 
   /**
-   * Model Seller
+   * Model vendor
    */
 
-  export type AggregateSeller = {
-    _count: SellerCountAggregateOutputType | null
-    _min: SellerMinAggregateOutputType | null
-    _max: SellerMaxAggregateOutputType | null
+  export type AggregateVendor = {
+    _count: VendorCountAggregateOutputType | null
+    _min: VendorMinAggregateOutputType | null
+    _max: VendorMaxAggregateOutputType | null
   }
 
-  export type SellerMinAggregateOutputType = {
+  export type VendorMinAggregateOutputType = {
     id: string | null
     name: string | null
     email: string | null
@@ -3325,12 +3325,12 @@ export namespace Prisma {
     country: string | null
     password: string | null
     stripeId: string | null
-    status: $Enums.SellerStatus | null
+    status: $Enums.vendorStatus | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type SellerMaxAggregateOutputType = {
+  export type VendorMaxAggregateOutputType = {
     id: string | null
     name: string | null
     email: string | null
@@ -3338,12 +3338,12 @@ export namespace Prisma {
     country: string | null
     password: string | null
     stripeId: string | null
-    status: $Enums.SellerStatus | null
+    status: $Enums.vendorStatus | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type SellerCountAggregateOutputType = {
+  export type VendorCountAggregateOutputType = {
     id: number
     name: number
     email: number
@@ -3358,7 +3358,7 @@ export namespace Prisma {
   }
 
 
-  export type SellerMinAggregateInputType = {
+  export type VendorMinAggregateInputType = {
     id?: true
     name?: true
     email?: true
@@ -3371,7 +3371,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type SellerMaxAggregateInputType = {
+  export type VendorMaxAggregateInputType = {
     id?: true
     name?: true
     email?: true
@@ -3384,7 +3384,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type SellerCountAggregateInputType = {
+  export type VendorCountAggregateInputType = {
     id?: true
     name?: true
     email?: true
@@ -3398,79 +3398,79 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type SellerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VendorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Seller to aggregate.
+     * Filter which vendor to aggregate.
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sellers to fetch.
+     * Determine the order of vendors to fetch.
      */
-    orderBy?: SellerOrderByWithRelationInput | SellerOrderByWithRelationInput[]
+    orderBy?: vendorOrderByWithRelationInput | vendorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: SellerWhereUniqueInput
+    cursor?: vendorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sellers from the position of the cursor.
+     * Take `±n` vendors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sellers.
+     * Skip the first `n` vendors.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Sellers
+     * Count returned vendors
     **/
-    _count?: true | SellerCountAggregateInputType
+    _count?: true | VendorCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: SellerMinAggregateInputType
+    _min?: VendorMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: SellerMaxAggregateInputType
+    _max?: VendorMaxAggregateInputType
   }
 
-  export type GetSellerAggregateType<T extends SellerAggregateArgs> = {
-        [P in keyof T & keyof AggregateSeller]: P extends '_count' | 'count'
+  export type GetVendorAggregateType<T extends VendorAggregateArgs> = {
+        [P in keyof T & keyof AggregateVendor]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateSeller[P]>
-      : GetScalarType<T[P], AggregateSeller[P]>
+        : GetScalarType<T[P], AggregateVendor[P]>
+      : GetScalarType<T[P], AggregateVendor[P]>
   }
 
 
 
 
-  export type SellerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SellerWhereInput
-    orderBy?: SellerOrderByWithAggregationInput | SellerOrderByWithAggregationInput[]
-    by: SellerScalarFieldEnum[] | SellerScalarFieldEnum
-    having?: SellerScalarWhereWithAggregatesInput
+  export type vendorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: vendorWhereInput
+    orderBy?: vendorOrderByWithAggregationInput | vendorOrderByWithAggregationInput[]
+    by: VendorScalarFieldEnum[] | VendorScalarFieldEnum
+    having?: vendorScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: SellerCountAggregateInputType | true
-    _min?: SellerMinAggregateInputType
-    _max?: SellerMaxAggregateInputType
+    _count?: VendorCountAggregateInputType | true
+    _min?: VendorMinAggregateInputType
+    _max?: VendorMaxAggregateInputType
   }
 
-  export type SellerGroupByOutputType = {
+  export type VendorGroupByOutputType = {
     id: string
     name: string
     email: string
@@ -3478,29 +3478,29 @@ export namespace Prisma {
     country: string
     password: string
     stripeId: string | null
-    status: $Enums.SellerStatus
+    status: $Enums.vendorStatus
     createdAt: Date
     updatedAt: Date
-    _count: SellerCountAggregateOutputType | null
-    _min: SellerMinAggregateOutputType | null
-    _max: SellerMaxAggregateOutputType | null
+    _count: VendorCountAggregateOutputType | null
+    _min: VendorMinAggregateOutputType | null
+    _max: VendorMaxAggregateOutputType | null
   }
 
-  type GetSellerGroupByPayload<T extends SellerGroupByArgs> = Prisma.PrismaPromise<
+  type GetVendorGroupByPayload<T extends vendorGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<SellerGroupByOutputType, T['by']> &
+      PickEnumerable<VendorGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof SellerGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof VendorGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], SellerGroupByOutputType[P]>
-            : GetScalarType<T[P], SellerGroupByOutputType[P]>
+              : GetScalarType<T[P], VendorGroupByOutputType[P]>
+            : GetScalarType<T[P], VendorGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type SellerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type vendorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
@@ -3511,10 +3511,10 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | Seller$userArgs<ExtArgs>
-  }, ExtArgs["result"]["seller"]>
+    user?: boolean | vendor$userArgs<ExtArgs>
+  }, ExtArgs["result"]["vendor"]>
 
-  export type SellerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type vendorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
@@ -3525,9 +3525,9 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["seller"]>
+  }, ExtArgs["result"]["vendor"]>
 
-  export type SellerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type vendorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
@@ -3538,9 +3538,9 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["seller"]>
+  }, ExtArgs["result"]["vendor"]>
 
-  export type SellerSelectScalar = {
+  export type vendorSelectScalar = {
     id?: boolean
     name?: boolean
     email?: boolean
@@ -3553,15 +3553,15 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type SellerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone_number" | "country" | "password" | "stripeId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["seller"]>
-  export type SellerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | Seller$userArgs<ExtArgs>
+  export type vendorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone_number" | "country" | "password" | "stripeId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["vendor"]>
+  export type vendorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | vendor$userArgs<ExtArgs>
   }
-  export type SellerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type SellerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type vendorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type vendorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $SellerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Seller"
+  export type $vendorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "vendor"
     objects: {
       user: Prisma.$UserPayload<ExtArgs> | null
     }
@@ -3573,139 +3573,139 @@ export namespace Prisma {
       country: string
       password: string
       stripeId: string | null
-      status: $Enums.SellerStatus
+      status: $Enums.vendorStatus
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["seller"]>
+    }, ExtArgs["result"]["vendor"]>
     composites: {}
   }
 
-  type SellerGetPayload<S extends boolean | null | undefined | SellerDefaultArgs> = $Result.GetResult<Prisma.$SellerPayload, S>
+  type vendorGetPayload<S extends boolean | null | undefined | vendorDefaultArgs> = $Result.GetResult<Prisma.$vendorPayload, S>
 
-  type SellerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<SellerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: SellerCountAggregateInputType | true
+  type vendorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<vendorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VendorCountAggregateInputType | true
     }
 
-  export interface SellerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Seller'], meta: { name: 'Seller' } }
+  export interface vendorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['vendor'], meta: { name: 'vendor' } }
     /**
-     * Find zero or one Seller that matches the filter.
-     * @param {SellerFindUniqueArgs} args - Arguments to find a Seller
+     * Find zero or one Vendor that matches the filter.
+     * @param {vendorFindUniqueArgs} args - Arguments to find a Vendor
      * @example
-     * // Get one Seller
-     * const seller = await prisma.seller.findUnique({
+     * // Get one Vendor
+     * const vendor = await prisma.vendor.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends SellerFindUniqueArgs>(args: SelectSubset<T, SellerFindUniqueArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends vendorFindUniqueArgs>(args: SelectSubset<T, vendorFindUniqueArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Seller that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Vendor that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {SellerFindUniqueOrThrowArgs} args - Arguments to find a Seller
+     * @param {vendorFindUniqueOrThrowArgs} args - Arguments to find a Vendor
      * @example
-     * // Get one Seller
-     * const seller = await prisma.seller.findUniqueOrThrow({
+     * // Get one Vendor
+     * const vendor = await prisma.vendor.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends SellerFindUniqueOrThrowArgs>(args: SelectSubset<T, SellerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends vendorFindUniqueOrThrowArgs>(args: SelectSubset<T, vendorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Seller that matches the filter.
+     * Find the first Vendor that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerFindFirstArgs} args - Arguments to find a Seller
+     * @param {vendorFindFirstArgs} args - Arguments to find a Vendor
      * @example
-     * // Get one Seller
-     * const seller = await prisma.seller.findFirst({
+     * // Get one Vendor
+     * const vendor = await prisma.vendor.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends SellerFindFirstArgs>(args?: SelectSubset<T, SellerFindFirstArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends vendorFindFirstArgs>(args?: SelectSubset<T, vendorFindFirstArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Seller that matches the filter or
+     * Find the first Vendor that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerFindFirstOrThrowArgs} args - Arguments to find a Seller
+     * @param {vendorFindFirstOrThrowArgs} args - Arguments to find a Vendor
      * @example
-     * // Get one Seller
-     * const seller = await prisma.seller.findFirstOrThrow({
+     * // Get one Vendor
+     * const vendor = await prisma.vendor.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends SellerFindFirstOrThrowArgs>(args?: SelectSubset<T, SellerFindFirstOrThrowArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends vendorFindFirstOrThrowArgs>(args?: SelectSubset<T, vendorFindFirstOrThrowArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Sellers that matches the filter.
+     * Find zero or more Vendors that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {vendorFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Sellers
-     * const sellers = await prisma.seller.findMany()
+     * // Get all Vendors
+     * const vendors = await prisma.vendor.findMany()
      * 
-     * // Get first 10 Sellers
-     * const sellers = await prisma.seller.findMany({ take: 10 })
+     * // Get first 10 Vendors
+     * const vendors = await prisma.vendor.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const sellerWithIdOnly = await prisma.seller.findMany({ select: { id: true } })
+     * const vendorWithIdOnly = await prisma.vendor.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends SellerFindManyArgs>(args?: SelectSubset<T, SellerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends vendorFindManyArgs>(args?: SelectSubset<T, vendorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Seller.
-     * @param {SellerCreateArgs} args - Arguments to create a Seller.
+     * Create a Vendor.
+     * @param {vendorCreateArgs} args - Arguments to create a Vendor.
      * @example
-     * // Create one Seller
-     * const Seller = await prisma.seller.create({
+     * // Create one Vendor
+     * const Vendor = await prisma.vendor.create({
      *   data: {
-     *     // ... data to create a Seller
+     *     // ... data to create a Vendor
      *   }
      * })
      * 
      */
-    create<T extends SellerCreateArgs>(args: SelectSubset<T, SellerCreateArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends vendorCreateArgs>(args: SelectSubset<T, vendorCreateArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Sellers.
-     * @param {SellerCreateManyArgs} args - Arguments to create many Sellers.
+     * Create many Vendors.
+     * @param {vendorCreateManyArgs} args - Arguments to create many Vendors.
      * @example
-     * // Create many Sellers
-     * const seller = await prisma.seller.createMany({
+     * // Create many Vendors
+     * const vendor = await prisma.vendor.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends SellerCreateManyArgs>(args?: SelectSubset<T, SellerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends vendorCreateManyArgs>(args?: SelectSubset<T, vendorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Sellers and returns the data saved in the database.
-     * @param {SellerCreateManyAndReturnArgs} args - Arguments to create many Sellers.
+     * Create many Vendors and returns the data saved in the database.
+     * @param {vendorCreateManyAndReturnArgs} args - Arguments to create many Vendors.
      * @example
-     * // Create many Sellers
-     * const seller = await prisma.seller.createManyAndReturn({
+     * // Create many Vendors
+     * const vendor = await prisma.vendor.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Sellers and only return the `id`
-     * const sellerWithIdOnly = await prisma.seller.createManyAndReturn({
+     * // Create many Vendors and only return the `id`
+     * const vendorWithIdOnly = await prisma.vendor.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3715,28 +3715,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends SellerCreateManyAndReturnArgs>(args?: SelectSubset<T, SellerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends vendorCreateManyAndReturnArgs>(args?: SelectSubset<T, vendorCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Seller.
-     * @param {SellerDeleteArgs} args - Arguments to delete one Seller.
+     * Delete a Vendor.
+     * @param {vendorDeleteArgs} args - Arguments to delete one Vendor.
      * @example
-     * // Delete one Seller
-     * const Seller = await prisma.seller.delete({
+     * // Delete one Vendor
+     * const Vendor = await prisma.vendor.delete({
      *   where: {
-     *     // ... filter to delete one Seller
+     *     // ... filter to delete one Vendor
      *   }
      * })
      * 
      */
-    delete<T extends SellerDeleteArgs>(args: SelectSubset<T, SellerDeleteArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends vendorDeleteArgs>(args: SelectSubset<T, vendorDeleteArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Seller.
-     * @param {SellerUpdateArgs} args - Arguments to update one Seller.
+     * Update one Vendor.
+     * @param {vendorUpdateArgs} args - Arguments to update one Vendor.
      * @example
-     * // Update one Seller
-     * const seller = await prisma.seller.update({
+     * // Update one Vendor
+     * const vendor = await prisma.vendor.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3746,30 +3746,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends SellerUpdateArgs>(args: SelectSubset<T, SellerUpdateArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends vendorUpdateArgs>(args: SelectSubset<T, vendorUpdateArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Sellers.
-     * @param {SellerDeleteManyArgs} args - Arguments to filter Sellers to delete.
+     * Delete zero or more Vendors.
+     * @param {vendorDeleteManyArgs} args - Arguments to filter Vendors to delete.
      * @example
-     * // Delete a few Sellers
-     * const { count } = await prisma.seller.deleteMany({
+     * // Delete a few Vendors
+     * const { count } = await prisma.vendor.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends SellerDeleteManyArgs>(args?: SelectSubset<T, SellerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends vendorDeleteManyArgs>(args?: SelectSubset<T, vendorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Sellers.
+     * Update zero or more Vendors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {vendorUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Sellers
-     * const seller = await prisma.seller.updateMany({
+     * // Update many Vendors
+     * const vendor = await prisma.vendor.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3779,14 +3779,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends SellerUpdateManyArgs>(args: SelectSubset<T, SellerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends vendorUpdateManyArgs>(args: SelectSubset<T, vendorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Sellers and returns the data updated in the database.
-     * @param {SellerUpdateManyAndReturnArgs} args - Arguments to update many Sellers.
+     * Update zero or more Vendors and returns the data updated in the database.
+     * @param {vendorUpdateManyAndReturnArgs} args - Arguments to update many Vendors.
      * @example
-     * // Update many Sellers
-     * const seller = await prisma.seller.updateManyAndReturn({
+     * // Update many Vendors
+     * const vendor = await prisma.vendor.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3795,8 +3795,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Sellers and only return the `id`
-     * const sellerWithIdOnly = await prisma.seller.updateManyAndReturn({
+     * // Update zero or more Vendors and only return the `id`
+     * const vendorWithIdOnly = await prisma.vendor.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3809,56 +3809,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends SellerUpdateManyAndReturnArgs>(args: SelectSubset<T, SellerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends vendorUpdateManyAndReturnArgs>(args: SelectSubset<T, vendorUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Seller.
-     * @param {SellerUpsertArgs} args - Arguments to update or create a Seller.
+     * Create or update one Vendor.
+     * @param {vendorUpsertArgs} args - Arguments to update or create a Vendor.
      * @example
-     * // Update or create a Seller
-     * const seller = await prisma.seller.upsert({
+     * // Update or create a Vendor
+     * const vendor = await prisma.vendor.upsert({
      *   create: {
-     *     // ... data to create a Seller
+     *     // ... data to create a Vendor
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Seller we want to update
+     *     // ... the filter for the Vendor we want to update
      *   }
      * })
      */
-    upsert<T extends SellerUpsertArgs>(args: SelectSubset<T, SellerUpsertArgs<ExtArgs>>): Prisma__SellerClient<$Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends vendorUpsertArgs>(args: SelectSubset<T, vendorUpsertArgs<ExtArgs>>): Prisma__vendorClient<$Result.GetResult<Prisma.$vendorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Sellers.
+     * Count the number of Vendors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerCountArgs} args - Arguments to filter Sellers to count.
+     * @param {vendorCountArgs} args - Arguments to filter Vendors to count.
      * @example
-     * // Count the number of Sellers
-     * const count = await prisma.seller.count({
+     * // Count the number of Vendors
+     * const count = await prisma.vendor.count({
      *   where: {
-     *     // ... the filter for the Sellers we want to count
+     *     // ... the filter for the Vendors we want to count
      *   }
      * })
     **/
-    count<T extends SellerCountArgs>(
-      args?: Subset<T, SellerCountArgs>,
+    count<T extends vendorCountArgs>(
+      args?: Subset<T, vendorCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], SellerCountAggregateOutputType>
+          : GetScalarType<T['select'], VendorCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Seller.
+     * Allows you to perform aggregations operations on a Vendor.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {VendorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3878,13 +3878,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends SellerAggregateArgs>(args: Subset<T, SellerAggregateArgs>): Prisma.PrismaPromise<GetSellerAggregateType<T>>
+    aggregate<T extends VendorAggregateArgs>(args: Subset<T, VendorAggregateArgs>): Prisma.PrismaPromise<GetVendorAggregateType<T>>
 
     /**
-     * Group by Seller.
+     * Group by Vendor.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SellerGroupByArgs} args - Group by arguments.
+     * @param {vendorGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3899,14 +3899,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends SellerGroupByArgs,
+      T extends vendorGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: SellerGroupByArgs['orderBy'] }
-        : { orderBy?: SellerGroupByArgs['orderBy'] },
+        ? { orderBy: vendorGroupByArgs['orderBy'] }
+        : { orderBy?: vendorGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3955,22 +3955,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, SellerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSellerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, vendorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVendorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Seller model
+   * Fields of the vendor model
    */
-  readonly fields: SellerFieldRefs;
+  readonly fields: vendorFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Seller.
+   * The delegate class that acts as a "Promise-like" for vendor.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__SellerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__vendorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends Seller$userArgs<ExtArgs> = {}>(args?: Subset<T, Seller$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends vendor$userArgs<ExtArgs> = {}>(args?: Subset<T, vendor$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3997,410 +3997,410 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Seller model
+   * Fields of the vendor model
    */
-  interface SellerFieldRefs {
-    readonly id: FieldRef<"Seller", 'String'>
-    readonly name: FieldRef<"Seller", 'String'>
-    readonly email: FieldRef<"Seller", 'String'>
-    readonly phone_number: FieldRef<"Seller", 'String'>
-    readonly country: FieldRef<"Seller", 'String'>
-    readonly password: FieldRef<"Seller", 'String'>
-    readonly stripeId: FieldRef<"Seller", 'String'>
-    readonly status: FieldRef<"Seller", 'SellerStatus'>
-    readonly createdAt: FieldRef<"Seller", 'DateTime'>
-    readonly updatedAt: FieldRef<"Seller", 'DateTime'>
+  interface vendorFieldRefs {
+    readonly id: FieldRef<"vendor", 'String'>
+    readonly name: FieldRef<"vendor", 'String'>
+    readonly email: FieldRef<"vendor", 'String'>
+    readonly phone_number: FieldRef<"vendor", 'String'>
+    readonly country: FieldRef<"vendor", 'String'>
+    readonly password: FieldRef<"vendor", 'String'>
+    readonly stripeId: FieldRef<"vendor", 'String'>
+    readonly status: FieldRef<"vendor", 'vendorStatus'>
+    readonly createdAt: FieldRef<"vendor", 'DateTime'>
+    readonly updatedAt: FieldRef<"vendor", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Seller findUnique
+   * vendor findUnique
    */
-  export type SellerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * Filter, which Seller to fetch.
+     * Filter, which vendor to fetch.
      */
-    where: SellerWhereUniqueInput
+    where: vendorWhereUniqueInput
   }
 
   /**
-   * Seller findUniqueOrThrow
+   * vendor findUniqueOrThrow
    */
-  export type SellerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * Filter, which Seller to fetch.
+     * Filter, which vendor to fetch.
      */
-    where: SellerWhereUniqueInput
+    where: vendorWhereUniqueInput
   }
 
   /**
-   * Seller findFirst
+   * vendor findFirst
    */
-  export type SellerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * Filter, which Seller to fetch.
+     * Filter, which vendor to fetch.
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sellers to fetch.
+     * Determine the order of vendors to fetch.
      */
-    orderBy?: SellerOrderByWithRelationInput | SellerOrderByWithRelationInput[]
+    orderBy?: vendorOrderByWithRelationInput | vendorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Sellers.
+     * Sets the position for searching for vendors.
      */
-    cursor?: SellerWhereUniqueInput
+    cursor?: vendorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sellers from the position of the cursor.
+     * Take `±n` vendors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sellers.
+     * Skip the first `n` vendors.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Sellers.
+     * Filter by unique combinations of vendors.
      */
-    distinct?: SellerScalarFieldEnum | SellerScalarFieldEnum[]
+    distinct?: VendorScalarFieldEnum | VendorScalarFieldEnum[]
   }
 
   /**
-   * Seller findFirstOrThrow
+   * vendor findFirstOrThrow
    */
-  export type SellerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * Filter, which Seller to fetch.
+     * Filter, which vendor to fetch.
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sellers to fetch.
+     * Determine the order of vendors to fetch.
      */
-    orderBy?: SellerOrderByWithRelationInput | SellerOrderByWithRelationInput[]
+    orderBy?: vendorOrderByWithRelationInput | vendorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Sellers.
+     * Sets the position for searching for vendors.
      */
-    cursor?: SellerWhereUniqueInput
+    cursor?: vendorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sellers from the position of the cursor.
+     * Take `±n` vendors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sellers.
+     * Skip the first `n` vendors.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Sellers.
+     * Filter by unique combinations of vendors.
      */
-    distinct?: SellerScalarFieldEnum | SellerScalarFieldEnum[]
+    distinct?: VendorScalarFieldEnum | VendorScalarFieldEnum[]
   }
 
   /**
-   * Seller findMany
+   * vendor findMany
    */
-  export type SellerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * Filter, which Sellers to fetch.
+     * Filter, which vendors to fetch.
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sellers to fetch.
+     * Determine the order of vendors to fetch.
      */
-    orderBy?: SellerOrderByWithRelationInput | SellerOrderByWithRelationInput[]
+    orderBy?: vendorOrderByWithRelationInput | vendorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Sellers.
+     * Sets the position for listing vendors.
      */
-    cursor?: SellerWhereUniqueInput
+    cursor?: vendorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sellers from the position of the cursor.
+     * Take `±n` vendors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sellers.
+     * Skip the first `n` vendors.
      */
     skip?: number
-    distinct?: SellerScalarFieldEnum | SellerScalarFieldEnum[]
+    distinct?: VendorScalarFieldEnum | VendorScalarFieldEnum[]
   }
 
   /**
-   * Seller create
+   * vendor create
    */
-  export type SellerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * The data needed to create a Seller.
+     * The data needed to create a vendor.
      */
-    data: XOR<SellerCreateInput, SellerUncheckedCreateInput>
+    data: XOR<vendorCreateInput, vendorUncheckedCreateInput>
   }
 
   /**
-   * Seller createMany
+   * vendor createMany
    */
-  export type SellerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Sellers.
+     * The data used to create many vendors.
      */
-    data: SellerCreateManyInput | SellerCreateManyInput[]
+    data: vendorCreateManyInput | vendorCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Seller createManyAndReturn
+   * vendor createManyAndReturn
    */
-  export type SellerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelectCreateManyAndReturn<ExtArgs> | null
+    select?: vendorSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
-     * The data used to create many Sellers.
+     * The data used to create many vendors.
      */
-    data: SellerCreateManyInput | SellerCreateManyInput[]
+    data: vendorCreateManyInput | vendorCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Seller update
+   * vendor update
    */
-  export type SellerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * The data needed to update a Seller.
+     * The data needed to update a vendor.
      */
-    data: XOR<SellerUpdateInput, SellerUncheckedUpdateInput>
+    data: XOR<vendorUpdateInput, vendorUncheckedUpdateInput>
     /**
-     * Choose, which Seller to update.
+     * Choose, which vendor to update.
      */
-    where: SellerWhereUniqueInput
+    where: vendorWhereUniqueInput
   }
 
   /**
-   * Seller updateMany
+   * vendor updateMany
    */
-  export type SellerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Sellers.
+     * The data used to update vendors.
      */
-    data: XOR<SellerUpdateManyMutationInput, SellerUncheckedUpdateManyInput>
+    data: XOR<vendorUpdateManyMutationInput, vendorUncheckedUpdateManyInput>
     /**
-     * Filter which Sellers to update
+     * Filter which vendors to update
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
-     * Limit how many Sellers to update.
+     * Limit how many vendors to update.
      */
     limit?: number
   }
 
   /**
-   * Seller updateManyAndReturn
+   * vendor updateManyAndReturn
    */
-  export type SellerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: vendorSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
-     * The data used to update Sellers.
+     * The data used to update vendors.
      */
-    data: XOR<SellerUpdateManyMutationInput, SellerUncheckedUpdateManyInput>
+    data: XOR<vendorUpdateManyMutationInput, vendorUncheckedUpdateManyInput>
     /**
-     * Filter which Sellers to update
+     * Filter which vendors to update
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
-     * Limit how many Sellers to update.
+     * Limit how many vendors to update.
      */
     limit?: number
   }
 
   /**
-   * Seller upsert
+   * vendor upsert
    */
-  export type SellerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * The filter to search for the Seller to update in case it exists.
+     * The filter to search for the vendor to update in case it exists.
      */
-    where: SellerWhereUniqueInput
+    where: vendorWhereUniqueInput
     /**
-     * In case the Seller found by the `where` argument doesn't exist, create a new Seller with this data.
+     * In case the vendor found by the `where` argument doesn't exist, create a new vendor with this data.
      */
-    create: XOR<SellerCreateInput, SellerUncheckedCreateInput>
+    create: XOR<vendorCreateInput, vendorUncheckedCreateInput>
     /**
-     * In case the Seller was found with the provided `where` argument, update it with this data.
+     * In case the vendor was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<SellerUpdateInput, SellerUncheckedUpdateInput>
+    update: XOR<vendorUpdateInput, vendorUncheckedUpdateInput>
   }
 
   /**
-   * Seller delete
+   * vendor delete
    */
-  export type SellerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
     /**
-     * Filter which Seller to delete.
+     * Filter which vendor to delete.
      */
-    where: SellerWhereUniqueInput
+    where: vendorWhereUniqueInput
   }
 
   /**
-   * Seller deleteMany
+   * vendor deleteMany
    */
-  export type SellerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Sellers to delete
+     * Filter which vendors to delete
      */
-    where?: SellerWhereInput
+    where?: vendorWhereInput
     /**
-     * Limit how many Sellers to delete.
+     * Limit how many vendors to delete.
      */
     limit?: number
   }
 
   /**
-   * Seller.user
+   * vendor.user
    */
-  export type Seller$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendor$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -4417,21 +4417,21 @@ export namespace Prisma {
   }
 
   /**
-   * Seller without action
+   * vendor without action
    */
-  export type SellerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type vendorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Seller
+     * Select specific fields to fetch from the vendor
      */
-    select?: SellerSelect<ExtArgs> | null
+    select?: vendorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Seller
+     * Omit specific fields from the vendor
      */
-    omit?: SellerOmit<ExtArgs> | null
+    omit?: vendorOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SellerInclude<ExtArgs> | null
+    include?: vendorInclude<ExtArgs> | null
   }
 
 
@@ -4474,7 +4474,7 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const SellerScalarFieldEnum: {
+  export const VendorScalarFieldEnum: {
     id: 'id',
     name: 'name',
     email: 'email',
@@ -4487,7 +4487,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type SellerScalarFieldEnum = (typeof SellerScalarFieldEnum)[keyof typeof SellerScalarFieldEnum]
+  export type VendorScalarFieldEnum = (typeof VendorScalarFieldEnum)[keyof typeof VendorScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4562,16 +4562,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'SellerStatus'
+   * Reference to a field of type 'vendorStatus'
    */
-  export type EnumSellerStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SellerStatus'>
+  export type EnumvendorStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'vendorStatus'>
     
 
 
   /**
-   * Reference to a field of type 'SellerStatus[]'
+   * Reference to a field of type 'vendorStatus[]'
    */
-  export type ListEnumSellerStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SellerStatus[]'>
+  export type ListEnumvendorStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'vendorStatus[]'>
     
 
 
@@ -4656,7 +4656,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     avatar?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
-    seller?: XOR<SellerNullableScalarRelationFilter, SellerWhereInput> | null
+    seller?: XOR<VendorNullableScalarRelationFilter, vendorWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4670,7 +4670,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     avatar?: ImageOrderByWithRelationInput
-    seller?: SellerOrderByWithRelationInput
+    seller?: vendorOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4687,7 +4687,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     avatar?: XOR<ImageNullableScalarRelationFilter, ImageWhereInput> | null
-    seller?: XOR<SellerNullableScalarRelationFilter, SellerWhereInput> | null
+    seller?: XOR<VendorNullableScalarRelationFilter, vendorWhereInput> | null
   }, "id" | "email" | "sellerId">
 
   export type UserOrderByWithAggregationInput = {
@@ -4720,24 +4720,24 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type SellerWhereInput = {
-    AND?: SellerWhereInput | SellerWhereInput[]
-    OR?: SellerWhereInput[]
-    NOT?: SellerWhereInput | SellerWhereInput[]
-    id?: UuidFilter<"Seller"> | string
-    name?: StringFilter<"Seller"> | string
-    email?: StringFilter<"Seller"> | string
-    phone_number?: StringFilter<"Seller"> | string
-    country?: StringFilter<"Seller"> | string
-    password?: StringFilter<"Seller"> | string
-    stripeId?: StringNullableFilter<"Seller"> | string | null
-    status?: EnumSellerStatusFilter<"Seller"> | $Enums.SellerStatus
-    createdAt?: DateTimeFilter<"Seller"> | Date | string
-    updatedAt?: DateTimeFilter<"Seller"> | Date | string
+  export type vendorWhereInput = {
+    AND?: vendorWhereInput | vendorWhereInput[]
+    OR?: vendorWhereInput[]
+    NOT?: vendorWhereInput | vendorWhereInput[]
+    id?: UuidFilter<"vendor"> | string
+    name?: StringFilter<"vendor"> | string
+    email?: StringFilter<"vendor"> | string
+    phone_number?: StringFilter<"vendor"> | string
+    country?: StringFilter<"vendor"> | string
+    password?: StringFilter<"vendor"> | string
+    stripeId?: StringNullableFilter<"vendor"> | string | null
+    status?: EnumvendorStatusFilter<"vendor"> | $Enums.vendorStatus
+    createdAt?: DateTimeFilter<"vendor"> | Date | string
+    updatedAt?: DateTimeFilter<"vendor"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
-  export type SellerOrderByWithRelationInput = {
+  export type vendorOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -4751,24 +4751,24 @@ export namespace Prisma {
     user?: UserOrderByWithRelationInput
   }
 
-  export type SellerWhereUniqueInput = Prisma.AtLeast<{
+  export type vendorWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     email?: string
-    AND?: SellerWhereInput | SellerWhereInput[]
-    OR?: SellerWhereInput[]
-    NOT?: SellerWhereInput | SellerWhereInput[]
-    name?: StringFilter<"Seller"> | string
-    phone_number?: StringFilter<"Seller"> | string
-    country?: StringFilter<"Seller"> | string
-    password?: StringFilter<"Seller"> | string
-    stripeId?: StringNullableFilter<"Seller"> | string | null
-    status?: EnumSellerStatusFilter<"Seller"> | $Enums.SellerStatus
-    createdAt?: DateTimeFilter<"Seller"> | Date | string
-    updatedAt?: DateTimeFilter<"Seller"> | Date | string
+    AND?: vendorWhereInput | vendorWhereInput[]
+    OR?: vendorWhereInput[]
+    NOT?: vendorWhereInput | vendorWhereInput[]
+    name?: StringFilter<"vendor"> | string
+    phone_number?: StringFilter<"vendor"> | string
+    country?: StringFilter<"vendor"> | string
+    password?: StringFilter<"vendor"> | string
+    stripeId?: StringNullableFilter<"vendor"> | string | null
+    status?: EnumvendorStatusFilter<"vendor"> | $Enums.vendorStatus
+    createdAt?: DateTimeFilter<"vendor"> | Date | string
+    updatedAt?: DateTimeFilter<"vendor"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id" | "email">
 
-  export type SellerOrderByWithAggregationInput = {
+  export type vendorOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -4779,25 +4779,25 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: SellerCountOrderByAggregateInput
-    _max?: SellerMaxOrderByAggregateInput
-    _min?: SellerMinOrderByAggregateInput
+    _count?: vendorCountOrderByAggregateInput
+    _max?: vendorMaxOrderByAggregateInput
+    _min?: vendorMinOrderByAggregateInput
   }
 
-  export type SellerScalarWhereWithAggregatesInput = {
-    AND?: SellerScalarWhereWithAggregatesInput | SellerScalarWhereWithAggregatesInput[]
-    OR?: SellerScalarWhereWithAggregatesInput[]
-    NOT?: SellerScalarWhereWithAggregatesInput | SellerScalarWhereWithAggregatesInput[]
-    id?: UuidWithAggregatesFilter<"Seller"> | string
-    name?: StringWithAggregatesFilter<"Seller"> | string
-    email?: StringWithAggregatesFilter<"Seller"> | string
-    phone_number?: StringWithAggregatesFilter<"Seller"> | string
-    country?: StringWithAggregatesFilter<"Seller"> | string
-    password?: StringWithAggregatesFilter<"Seller"> | string
-    stripeId?: StringNullableWithAggregatesFilter<"Seller"> | string | null
-    status?: EnumSellerStatusWithAggregatesFilter<"Seller"> | $Enums.SellerStatus
-    createdAt?: DateTimeWithAggregatesFilter<"Seller"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Seller"> | Date | string
+  export type vendorScalarWhereWithAggregatesInput = {
+    AND?: vendorScalarWhereWithAggregatesInput | vendorScalarWhereWithAggregatesInput[]
+    OR?: vendorScalarWhereWithAggregatesInput[]
+    NOT?: vendorScalarWhereWithAggregatesInput | vendorScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"vendor"> | string
+    name?: StringWithAggregatesFilter<"vendor"> | string
+    email?: StringWithAggregatesFilter<"vendor"> | string
+    phone_number?: StringWithAggregatesFilter<"vendor"> | string
+    country?: StringWithAggregatesFilter<"vendor"> | string
+    password?: StringWithAggregatesFilter<"vendor"> | string
+    stripeId?: StringNullableWithAggregatesFilter<"vendor"> | string | null
+    status?: EnumvendorStatusWithAggregatesFilter<"vendor"> | $Enums.vendorStatus
+    createdAt?: DateTimeWithAggregatesFilter<"vendor"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"vendor"> | Date | string
   }
 
   export type ImageCreateInput = {
@@ -4858,7 +4858,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     avatar?: ImageCreateNestedOneWithoutUserInput
-    seller?: SellerCreateNestedOneWithoutUserInput
+    seller?: vendorCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -4884,7 +4884,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: ImageUpdateOneWithoutUserNestedInput
-    seller?: SellerUpdateOneWithoutUserNestedInput
+    seller?: vendorUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4935,7 +4935,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type SellerCreateInput = {
+  export type vendorCreateInput = {
     id?: string
     name: string
     email: string
@@ -4943,13 +4943,13 @@ export namespace Prisma {
     country: string
     password: string
     stripeId?: string | null
-    status?: $Enums.SellerStatus
+    status?: $Enums.vendorStatus
     createdAt?: Date | string
     updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutSellerInput
   }
 
-  export type SellerUncheckedCreateInput = {
+  export type vendorUncheckedCreateInput = {
     id?: string
     name: string
     email: string
@@ -4957,13 +4957,13 @@ export namespace Prisma {
     country: string
     password: string
     stripeId?: string | null
-    status?: $Enums.SellerStatus
+    status?: $Enums.vendorStatus
     createdAt?: Date | string
     updatedAt?: Date | string
     user?: UserUncheckedCreateNestedOneWithoutSellerInput
   }
 
-  export type SellerUpdateInput = {
+  export type vendorUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -4971,13 +4971,13 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     stripeId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumSellerStatusFieldUpdateOperationsInput | $Enums.SellerStatus
+    status?: EnumvendorStatusFieldUpdateOperationsInput | $Enums.vendorStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutSellerNestedInput
   }
 
-  export type SellerUncheckedUpdateInput = {
+  export type vendorUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -4985,13 +4985,13 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     stripeId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumSellerStatusFieldUpdateOperationsInput | $Enums.SellerStatus
+    status?: EnumvendorStatusFieldUpdateOperationsInput | $Enums.vendorStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUncheckedUpdateOneWithoutSellerNestedInput
   }
 
-  export type SellerCreateManyInput = {
+  export type vendorCreateManyInput = {
     id?: string
     name: string
     email: string
@@ -4999,12 +4999,12 @@ export namespace Prisma {
     country: string
     password: string
     stripeId?: string | null
-    status?: $Enums.SellerStatus
+    status?: $Enums.vendorStatus
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type SellerUpdateManyMutationInput = {
+  export type vendorUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -5012,12 +5012,12 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     stripeId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumSellerStatusFieldUpdateOperationsInput | $Enums.SellerStatus
+    status?: EnumvendorStatusFieldUpdateOperationsInput | $Enums.vendorStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type SellerUncheckedUpdateManyInput = {
+  export type vendorUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -5025,7 +5025,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     stripeId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumSellerStatusFieldUpdateOperationsInput | $Enums.SellerStatus
+    status?: EnumvendorStatusFieldUpdateOperationsInput | $Enums.vendorStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5194,9 +5194,9 @@ export namespace Prisma {
     isNot?: ImageWhereInput | null
   }
 
-  export type SellerNullableScalarRelationFilter = {
-    is?: SellerWhereInput | null
-    isNot?: SellerWhereInput | null
+  export type VendorNullableScalarRelationFilter = {
+    is?: vendorWhereInput | null
+    isNot?: vendorWhereInput | null
   }
 
   export type UserCountOrderByAggregateInput = {
@@ -5275,14 +5275,14 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type EnumSellerStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.SellerStatus | EnumSellerStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumSellerStatusFilter<$PrismaModel> | $Enums.SellerStatus
+  export type EnumvendorStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.vendorStatus | EnumvendorStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumvendorStatusFilter<$PrismaModel> | $Enums.vendorStatus
   }
 
-  export type SellerCountOrderByAggregateInput = {
+  export type vendorCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -5295,7 +5295,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type SellerMaxOrderByAggregateInput = {
+  export type vendorMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -5308,7 +5308,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type SellerMinOrderByAggregateInput = {
+  export type vendorMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
@@ -5321,14 +5321,14 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type EnumSellerStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.SellerStatus | EnumSellerStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumSellerStatusWithAggregatesFilter<$PrismaModel> | $Enums.SellerStatus
+  export type EnumvendorStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.vendorStatus | EnumvendorStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumvendorStatusWithAggregatesFilter<$PrismaModel> | $Enums.vendorStatus
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSellerStatusFilter<$PrismaModel>
-    _max?: NestedEnumSellerStatusFilter<$PrismaModel>
+    _min?: NestedEnumvendorStatusFilter<$PrismaModel>
+    _max?: NestedEnumvendorStatusFilter<$PrismaModel>
   }
 
   export type UserCreateNestedOneWithoutAvatarInput = {
@@ -5365,10 +5365,10 @@ export namespace Prisma {
     connect?: ImageWhereUniqueInput
   }
 
-  export type SellerCreateNestedOneWithoutUserInput = {
-    create?: XOR<SellerCreateWithoutUserInput, SellerUncheckedCreateWithoutUserInput>
-    connectOrCreate?: SellerCreateOrConnectWithoutUserInput
-    connect?: SellerWhereUniqueInput
+  export type vendorCreateNestedOneWithoutUserInput = {
+    create?: XOR<vendorCreateWithoutUserInput, vendorUncheckedCreateWithoutUserInput>
+    connectOrCreate?: vendorCreateOrConnectWithoutUserInput
+    connect?: vendorWhereUniqueInput
   }
 
   export type ImageUncheckedCreateNestedOneWithoutUserInput = {
@@ -5400,14 +5400,14 @@ export namespace Prisma {
     update?: XOR<XOR<ImageUpdateToOneWithWhereWithoutUserInput, ImageUpdateWithoutUserInput>, ImageUncheckedUpdateWithoutUserInput>
   }
 
-  export type SellerUpdateOneWithoutUserNestedInput = {
-    create?: XOR<SellerCreateWithoutUserInput, SellerUncheckedCreateWithoutUserInput>
-    connectOrCreate?: SellerCreateOrConnectWithoutUserInput
-    upsert?: SellerUpsertWithoutUserInput
-    disconnect?: SellerWhereInput | boolean
-    delete?: SellerWhereInput | boolean
-    connect?: SellerWhereUniqueInput
-    update?: XOR<XOR<SellerUpdateToOneWithWhereWithoutUserInput, SellerUpdateWithoutUserInput>, SellerUncheckedUpdateWithoutUserInput>
+  export type vendorUpdateOneWithoutUserNestedInput = {
+    create?: XOR<vendorCreateWithoutUserInput, vendorUncheckedCreateWithoutUserInput>
+    connectOrCreate?: vendorCreateOrConnectWithoutUserInput
+    upsert?: vendorUpsertWithoutUserInput
+    disconnect?: vendorWhereInput | boolean
+    delete?: vendorWhereInput | boolean
+    connect?: vendorWhereUniqueInput
+    update?: XOR<XOR<vendorUpdateToOneWithWhereWithoutUserInput, vendorUpdateWithoutUserInput>, vendorUncheckedUpdateWithoutUserInput>
   }
 
   export type ImageUncheckedUpdateOneWithoutUserNestedInput = {
@@ -5432,8 +5432,8 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type EnumSellerStatusFieldUpdateOperationsInput = {
-    set?: $Enums.SellerStatus
+  export type EnumvendorStatusFieldUpdateOperationsInput = {
+    set?: $Enums.vendorStatus
   }
 
   export type UserUpdateOneWithoutSellerNestedInput = {
@@ -5632,21 +5632,21 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedEnumSellerStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.SellerStatus | EnumSellerStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumSellerStatusFilter<$PrismaModel> | $Enums.SellerStatus
+  export type NestedEnumvendorStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.vendorStatus | EnumvendorStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumvendorStatusFilter<$PrismaModel> | $Enums.vendorStatus
   }
 
-  export type NestedEnumSellerStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.SellerStatus | EnumSellerStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SellerStatus[] | ListEnumSellerStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumSellerStatusWithAggregatesFilter<$PrismaModel> | $Enums.SellerStatus
+  export type NestedEnumvendorStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.vendorStatus | EnumvendorStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.vendorStatus[] | ListEnumvendorStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumvendorStatusWithAggregatesFilter<$PrismaModel> | $Enums.vendorStatus
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSellerStatusFilter<$PrismaModel>
-    _max?: NestedEnumSellerStatusFilter<$PrismaModel>
+    _min?: NestedEnumvendorStatusFilter<$PrismaModel>
+    _max?: NestedEnumvendorStatusFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutAvatarInput = {
@@ -5658,7 +5658,7 @@ export namespace Prisma {
     following?: UserCreatefollowingInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    seller?: SellerCreateNestedOneWithoutUserInput
+    seller?: vendorCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAvatarInput = {
@@ -5698,7 +5698,7 @@ export namespace Prisma {
     following?: UserUpdatefollowingInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    seller?: SellerUpdateOneWithoutUserNestedInput
+    seller?: vendorUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAvatarInput = {
@@ -5730,7 +5730,7 @@ export namespace Prisma {
     create: XOR<ImageCreateWithoutUserInput, ImageUncheckedCreateWithoutUserInput>
   }
 
-  export type SellerCreateWithoutUserInput = {
+  export type vendorCreateWithoutUserInput = {
     id?: string
     name: string
     email: string
@@ -5738,12 +5738,12 @@ export namespace Prisma {
     country: string
     password: string
     stripeId?: string | null
-    status?: $Enums.SellerStatus
+    status?: $Enums.vendorStatus
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type SellerUncheckedCreateWithoutUserInput = {
+  export type vendorUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
     email: string
@@ -5751,14 +5751,14 @@ export namespace Prisma {
     country: string
     password: string
     stripeId?: string | null
-    status?: $Enums.SellerStatus
+    status?: $Enums.vendorStatus
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type SellerCreateOrConnectWithoutUserInput = {
-    where: SellerWhereUniqueInput
-    create: XOR<SellerCreateWithoutUserInput, SellerUncheckedCreateWithoutUserInput>
+  export type vendorCreateOrConnectWithoutUserInput = {
+    where: vendorWhereUniqueInput
+    create: XOR<vendorCreateWithoutUserInput, vendorUncheckedCreateWithoutUserInput>
   }
 
   export type ImageUpsertWithoutUserInput = {
@@ -5784,18 +5784,18 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
   }
 
-  export type SellerUpsertWithoutUserInput = {
-    update: XOR<SellerUpdateWithoutUserInput, SellerUncheckedUpdateWithoutUserInput>
-    create: XOR<SellerCreateWithoutUserInput, SellerUncheckedCreateWithoutUserInput>
-    where?: SellerWhereInput
+  export type vendorUpsertWithoutUserInput = {
+    update: XOR<vendorUpdateWithoutUserInput, vendorUncheckedUpdateWithoutUserInput>
+    create: XOR<vendorCreateWithoutUserInput, vendorUncheckedCreateWithoutUserInput>
+    where?: vendorWhereInput
   }
 
-  export type SellerUpdateToOneWithWhereWithoutUserInput = {
-    where?: SellerWhereInput
-    data: XOR<SellerUpdateWithoutUserInput, SellerUncheckedUpdateWithoutUserInput>
+  export type vendorUpdateToOneWithWhereWithoutUserInput = {
+    where?: vendorWhereInput
+    data: XOR<vendorUpdateWithoutUserInput, vendorUncheckedUpdateWithoutUserInput>
   }
 
-  export type SellerUpdateWithoutUserInput = {
+  export type vendorUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -5803,12 +5803,12 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     stripeId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumSellerStatusFieldUpdateOperationsInput | $Enums.SellerStatus
+    status?: EnumvendorStatusFieldUpdateOperationsInput | $Enums.vendorStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type SellerUncheckedUpdateWithoutUserInput = {
+  export type vendorUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -5816,7 +5816,7 @@ export namespace Prisma {
     country?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     stripeId?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: EnumSellerStatusFieldUpdateOperationsInput | $Enums.SellerStatus
+    status?: EnumvendorStatusFieldUpdateOperationsInput | $Enums.vendorStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

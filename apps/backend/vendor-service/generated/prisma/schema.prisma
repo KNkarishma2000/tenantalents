@@ -24,13 +24,13 @@ model User {
   role      UserRole
   following String[] @default([]) @db.Text
   avatar    Image?
-  seller    Seller?  @relation(fields: [sellerId], references: [id])
+  seller    vendor?  @relation(fields: [sellerId], references: [id])
   sellerId  String?  @unique @db.Uuid
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(6)
 }
 
-model Seller {
+model vendor {
   id           String       @id @default(uuid()) @map("_id") @db.Uuid
   name         String
   email        String       @unique
@@ -38,13 +38,13 @@ model Seller {
   country      String
   password     String
   stripeId     String?
-  status       SellerStatus @default(PENDING)
+  status       vendorStatus @default(PENDING)
   user         User?
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }
 
-enum SellerStatus {
+enum vendorStatus {
   PENDING
   APPROVED
   REJECTED

@@ -139,7 +139,7 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.SellerScalarFieldEnum = {
+exports.Prisma.VendorScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
@@ -172,7 +172,7 @@ exports.UserRole = exports.$Enums.UserRole = {
   ADMIN: 'ADMIN'
 };
 
-exports.SellerStatus = exports.$Enums.SellerStatus = {
+exports.vendorStatus = exports.$Enums.vendorStatus = {
   PENDING: 'PENDING',
   APPROVED: 'APPROVED',
   REJECTED: 'REJECTED'
@@ -181,7 +181,7 @@ exports.SellerStatus = exports.$Enums.SellerStatus = {
 exports.Prisma.ModelName = {
   Image: 'Image',
   User: 'User',
-  Seller: 'Seller'
+  vendor: 'vendor'
 };
 
 /**
