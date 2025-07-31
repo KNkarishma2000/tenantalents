@@ -1,0 +1,8 @@
+{
+  "name": "payment-service",
+  "type": "microservice",
+  "version": "1.0.0",
+  "description": "TODO: Add description for payment-service",
+  "owner": "TODO: Add owner/team for payment-service",
+  "tags": ["backend"]
+}

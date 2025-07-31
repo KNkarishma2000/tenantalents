@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// === DATABASE SOURCE ===
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//
+// ENUMS
+//
+
+/// Status of the payment after gateway/logic processing
+enum PaymentStatus {
+  success     // Payment completed successfully
+  failed      // Gateway declined or error
+  pending     // Awaiting user/gateway confirmation (e.g. UPI timeout)
+}
+
+/// Mode selected by user at checkout
+enum PaymentMethod {
+  upi         // UPI (QR/intent)
+  cod         // Cash on Delivery (to be collected by delivery agent)
+  card        // Credit/Debit card
+}
+
+//
+// MODELS
+//
+
+/// Stores metadata for each payment made for an order
+model Payment {
+  id             String         @id @default(uuid())         // Internal unique payment ID
+  userId         String                                         // FK to user-service (buyer)
+  orderId        String                                         // FK to order-service
+  amount         Decimal                                        // Gross amount paid
+  status         PaymentStatus                                  // Current state of the payment
+  method         PaymentMethod                                  // Method used by buyer
+  transactionId  String         @unique                        // Unique ID from payment gateway (UPI ref, card txn, etc.)
+  gateway        String?                                       // Optional: e.g., Razorpay, Stripe, Cashfree
+  remarks        String?                                       // Optional: Failure reason, gateway note, etc.
+  createdAt      DateTime       @default(now())                // When payment was initiated
+
+  @@index([userId])
+  @@index([orderId])
+  @@index([status])
+  @@index([transactionId])
+}

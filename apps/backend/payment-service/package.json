@@ -1,0 +1,11 @@
+{
+  "name": "payment-service",
+  "version": "0.0.1",
+  "types": "./src/main.d.ts",
+  "main": "./src/main.js",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "^6.11.0",
+    "winston": "^3.17.0"
+  }
+}
