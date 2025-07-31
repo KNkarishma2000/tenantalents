@@ -1,0 +1,63 @@
+{
+  "name": "analytics-service",
+  "sourceRoot": "apps/backend/analytics-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/backend/analytics-service",
+        "main": "apps/backend/analytics-service/src/main.ts",
+        "tsConfig": "apps/backend/analytics-service/tsconfig.app.json",
+        "assets": [],
+        "generatePackageJson": true,
+        "bundle": true,
+        "thirdParty": false,
+        "format": ["cjs"]
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "analytics-service:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "analytics-service:build:development"
+        },
+        "production": {
+          "buildTarget": "analytics-service:build:production"
+        }
+      }
+    },
+
+    "lint": {
+      "executor": "nx:eslint",
+      "options": {
+        "lintFilePatterns": ["pps/backend/analytics-service/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "nx:jest",
+      "options": {
+        "jestConfig": "apps/backend/analytics-service/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t analytics-service -f apps/backend/analytics-service/Dockerfile ."
+      }
+    }
+    },
+    "tags": ["type:service"]
+  }

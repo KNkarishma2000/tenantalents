@@ -1,0 +1,63 @@
+{
+  "name": "admin-service",
+  "sourceRoot": "apps/backend/admin-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/backend/admin-service",
+        "main": "apps/backend/admin-service/src/main.ts",
+        "tsConfig": "apps/backend/admin-service/tsconfig.app.json",
+        "assets": [],
+        "generatePackageJson": true,
+        "bundle": true,
+        "thirdParty": false,
+        "format": ["cjs"]
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "admin-service:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "admin-service:build:development"
+        },
+        "production": {
+          "buildTarget": "admin-service:build:production"
+        }
+      }
+    },
+
+    "lint": {
+      "executor": "nx:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/backend/admin-service/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "nx:jest",
+      "options": {
+        "jestConfig": "apps/backend/admin-service/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t admin-service -f apps/backend/admin-service/Dockerfile ."
+      }
+    }
+    },
+    "tags": ["type:service"]
+  }

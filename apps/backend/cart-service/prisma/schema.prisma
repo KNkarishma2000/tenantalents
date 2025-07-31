@@ -1,0 +1,33 @@
+// Generate Prisma client for TypeScript/Node.js
+generator client {
+  provider = "prisma-client-js"
+}
+
+// PostgreSQL connection for isolated service DB
+// === DATABASE SOURCE ===
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//
+// MODEL: CartItem
+//
+// Each cart item represents a single product (via a seller-specific listing) that
+// a user has added to their shopping cart. Supports multi-seller carts.
+//
+model CartItem {
+  id          String   @id @default(uuid())           // Unique ID for each cart item
+  userId      String                                   // Cross-service reference to user-service User ID
+  listingId   String                                   // FK to product-service ProductListing ID
+  productId   String                                   // FK to product-service Product ID
+  sellerId    String                                   // FK to vendor-service or seller in user-service
+  quantity    Int      @default(1)                     // Quantity of the item added
+  createdAt   DateTime @default(now())                 // Timestamp when added to cart
+
+  // Indexes for efficient querying/filtering (e.g., user cart fetch, analytics)
+  @@index([userId])
+  @@index([listingId])
+  @@index([sellerId])
+  @@index([productId])
+}
