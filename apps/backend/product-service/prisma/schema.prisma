@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// === DATABASE SOURCE ===
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//
+// ENUMS
+//
+
+/// Status of a seller’s product listing
+enum ProductListingStatus {
+  ACTIVE         // Product is available for purchase
+  INACTIVE       // Temporarily hidden (e.g. out of business)
+  OUT_OF_STOCK   // Inventory exhausted
+  DISCONTINUED   // Permanently removed by seller
+}
+
+//
+// MODELS
+//
+
+/// Represents a unique product (shared across all vendors)
+model Product {
+  id          String           @id @default(uuid())           // Global product ID
+  title       String                                             // Product name
+  description String?                                            // Optional full description (Markdown/HTML)
+  category    String?                                            // E.g., "Electronics > Phones"
+  imageUrls   String[]                                           // Array of image URLs (MinIO + ImageKit)
+  createdAt   DateTime         @default(now())                  // Creation timestamp
+  updatedAt   DateTime         @updatedAt                       // Auto-update on change
+
+  listings    ProductListing[]                                  // Linked listings from various sellers
+
+  @@index([title])
+  @@index([category])
+}
+
+/// Represents a seller-specific listing of a product
+model ProductListing {
+  id           String                @id @default(uuid())       // Unique listing ID (product + seller variant)
+  productId    String                                             // FK to base product
+  sellerId     String                                             // FK to vendor-service
+  sku          String?                 @unique                    // Optional: Seller-defined SKU code
+  price        Decimal                                            // Price set by seller
+  stock        Int                    @default(0)                // Current stock count
+  deliveryEta  String?                                            // Optional ETA (e.g., "3-5 days")
+  status       ProductListingStatus   @default(ACTIVE)           // Status of this listing
+  updatedAt    DateTime               @updatedAt                 // Auto-updated when record changes
+  createdAt    DateTime               @default(now())            // Created when seller listed
+
+  product      Product                @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([sellerId])
+  @@index([productId])
+  @@index([status])
+}
