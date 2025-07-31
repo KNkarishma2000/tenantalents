@@ -1,0 +1,12 @@
+{
+  "name": "shared-error",
+  "root": "libs/shared/error",
+  "sourceRoot": "libs/shared/error/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}
