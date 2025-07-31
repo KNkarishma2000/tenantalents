@@ -1,0 +1,19 @@
+{
+  "name": "shared-minio",
+  "root": "libs/shared/minio",
+  "sourceRoot": "libs/shared/minio/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/minio",
+        "tsConfig": "libs/shared/minio/tsconfig.lib.json",
+        "main": "libs/shared/minio/src/index.ts",
+        "assets": []
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}

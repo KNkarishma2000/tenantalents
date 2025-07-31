@@ -1,0 +1,11 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,                // 👈 REQUIRED for project references
+    "rootDir": "src",                 // Optional but recommended
+    "outDir": "../../../dist/out-tsc/libs/shared/minio" // Optional but good practice
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
