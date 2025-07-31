@@ -1,0 +1,12 @@
+{
+  "name": "shared-constants",
+  "root": "libs/shared/constants",
+  "sourceRoot": "libs/shared/constants/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "shared-email",
+  "root": "libs/shared/email",
+  "sourceRoot": "libs/shared/email/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"],
+  "implicitDependencies": []
+}

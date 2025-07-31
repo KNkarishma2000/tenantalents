@@ -1,0 +1,12 @@
+{
+  "name": "shared-config",
+  "root": "libs/shared/config",
+  "sourceRoot": "libs/shared/config/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}
