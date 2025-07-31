@@ -1,0 +1,115 @@
+# === DATABASE SOURCE ===
+DATABASE_URL=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/vendor_service_db
+
+# 🌐 Shared Configuration
+KAFKA_BROKERS=localhost:9092
+
+REDIS_HOST=localhost
+REDIS_PORT=26379
+REDIS_SENTINEL_NAME=myredis
+REDIS_PASSWORD=redis_pass
+
+MINIO_ENDPOINT=localhost
+MINIO_PORT=9000
+MINIO_ACCESS_KEY=minio
+MINIO_SECRET_KEY=minio123
+MINIO_BUCKET=images
+
+JWT_SECRET=psyrim3ReSNikbVHwq/R624osFaIpjxGjt8HxNqUFAg=
+
+# 📧 Email (SendGrid)
+SMTP_HOST=smtp.sendgrid.net
+SMTP_PORT=587
+SMTP_USER=apikey
+SMTP_PASS=A2ZS5PXY3LGLEP2TGMWXC1UX
+EMAIL_FROM=noreply@ecommerce.com
+
+# 🧩 Per-Service Configurations
+
+# ▶️ user-service
+USER_SERVICE_PORT=3000
+USER_SERVICE_NAME=user-service
+USER_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/user_service_db
+USER_SERVICE_KAFKA_CLIENT_ID=user-service-client
+USER_SERVICE_KAFKA_GROUP_ID=user-service-group
+
+# ▶️ product-service
+PRODUCT_SERVICE_PORT=3001
+PRODUCT_SERVICE_NAME=product-service
+PRODUCT_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/product_service_db
+PRODUCT_SERVICE_KAFKA_CLIENT_ID=product-service-client
+PRODUCT_SERVICE_KAFKA_GROUP_ID=product-service-group
+
+# ▶️ order-service
+ORDER_SERVICE_PORT=3002
+ORDER_SERVICE_NAME=order-service
+ORDER_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/order_service_db
+ORDER_SERVICE_KAFKA_CLIENT_ID=order-service-client
+ORDER_SERVICE_KAFKA_GROUP_ID=order-service-group
+
+# ▶️ rating-service
+RATING_SERVICE_PORT=3003
+RATING_SERVICE_NAME=rating-service
+RATING_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/rating_service_db
+RATING_SERVICE_KAFKA_CLIENT_ID=rating-service-client
+RATING_SERVICE_KAFKA_GROUP_ID=rating-service-group
+
+# ▶️ email-service
+EMAIL_SERVICE_PORT=3004
+EMAIL_SERVICE_NAME=email-service
+EMAIL_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/email_service_db
+EMAIL_SERVICE_KAFKA_CLIENT_ID=email-service-client
+EMAIL_SERVICE_KAFKA_GROUP_ID=email-service-group
+
+# ▶️ payment-service
+PAYMENT_SERVICE_PORT=3005
+PAYMENT_SERVICE_NAME=payment-service
+PAYMENT_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/payment_service_db
+PAYMENT_SERVICE_KAFKA_CLIENT_ID=payment-service-client
+PAYMENT_SERVICE_KAFKA_GROUP_ID=payment-service-group
+
+# ▶️ search-service
+SEARCH_SERVICE_PORT=3006
+SEARCH_SERVICE_NAME=search-service
+SEARCH_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/search_service_db
+SEARCH_SERVICE_KAFKA_CLIENT_ID=search-service-client
+SEARCH_SERVICE_KAFKA_GROUP_ID=search-service-group
+
+# ▶️ cart-service
+CART_SERVICE_PORT=3007
+CART_SERVICE_NAME=cart-service
+CART_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/cart_service_db
+CART_SERVICE_KAFKA_CLIENT_ID=cart-service-client
+CART_SERVICE_KAFKA_GROUP_ID=cart-service-group
+
+# ▶️ admin-service
+ADMIN_SERVICE_PORT=3008
+ADMIN_SERVICE_NAME=admin-service
+ADMIN_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/admin_service_db
+ADMIN_SERVICE_KAFKA_CLIENT_ID=admin-service-client
+ADMIN_SERVICE_KAFKA_GROUP_ID=admin-service-group
+
+# ▶️ invoice-service
+INVOICE_SERVICE_PORT=3009
+INVOICE_SERVICE_NAME=invoice-service
+INVOICE_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/invoice_service_db
+INVOICE_SERVICE_KAFKA_CLIENT_ID=invoice-service-client
+INVOICE_SERVICE_KAFKA_GROUP_ID=invoice-service-group
+
+# ▶️ analytics-service
+ANALYTICS_SERVICE_PORT=3010
+ANALYTICS_SERVICE_NAME=analytics-service
+ANALYTICS_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/analytics_service_db
+ANALYTICS_SERVICE_KAFKA_CLIENT_ID=analytics-service-client
+ANALYTICS_SERVICE_KAFKA_GROUP_ID=analytics-service-group
+
+# ▶️ vendor-service
+VENDOR_SERVICE_PORT=3011
+VENDOR_SERVICE_NAME=vendor-service
+VENDOR_SERVICE_DB=postgresql://mvp_ecom_user:mvp_ecom_pass@localhost:5432/vendor_service_db
+VENDOR_SERVICE_KAFKA_CLIENT_ID=vendor-service-client
+VENDOR_SERVICE_KAFKA_GROUP_ID=vendor-service-group
+
+# 📦 Docker Compose Run Examples
+# docker compose -f docker-compose.tools.yml --env-file .env up
+# docker compose -f docker-compose.services.yml --env-file .env up -d

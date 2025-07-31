@@ -1,0 +1,1 @@
+[33mYour build has conflicting options, [1mbundle:false[22m and [1mthirdParty:true[22m. Your package.json dependencies might not be generated correctly so we added an update [1mthirdParty:false[22m[39m

@@ -1,0 +1,91 @@
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:4:3[39m[24m - [31m[1merror[22m[39m [90mTS2305[39m: Module '"@prisma/client"' has no exported member 'Seller'.
+
+[0m [90m 2 | [39m  [33mPrismaClient[39m[33m,[39m[0m
+[0m [90m 3 | [39m  [33mUser[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 | [39m  [33mSeller[39m[33m,[39m[0m
+[0m [90m   | [39m  [31m[1m^[22m[39m[0m
+[0m [90m 5 | [39m  [33mUserRole[39m[33m,[39m[0m
+[0m [90m 6 | [39m  [33mSellerStatus[39m[33m,[39m[0m
+[0m [90m 7 | [39m} from [32m'@prisma/client'[39m[33m;[39m [90m// ✅ FIXED[39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:5:3[39m[24m - [31m[1merror[22m[39m [90mTS2305[39m: Module '"@prisma/client"' has no exported member 'UserRole'.
+
+[0m [90m 3 | [39m  [33mUser[39m[33m,[39m[0m
+[0m [90m 4 | [39m  [33mSeller[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 5 | [39m  [33mUserRole[39m[33m,[39m[0m
+[0m [90m   | [39m  [31m[1m^[22m[39m[0m
+[0m [90m 6 | [39m  [33mSellerStatus[39m[33m,[39m[0m
+[0m [90m 7 | [39m} from [32m'@prisma/client'[39m[33m;[39m [90m// ✅ FIXED[39m[0m
+[0m [90m 8 | [39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:6:3[39m[24m - [31m[1merror[22m[39m [90mTS2305[39m: Module '"@prisma/client"' has no exported member 'SellerStatus'.
+
+[0m [90m 4 | [39m  [33mSeller[39m[33m,[39m[0m
+[0m [90m 5 | [39m  [33mUserRole[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 6 | [39m  [33mSellerStatus[39m[33m,[39m[0m
+[0m [90m   | [39m  [31m[1m^[22m[39m[0m
+[0m [90m 7 | [39m} from [32m'@prisma/client'[39m[33m;[39m [90m// ✅ FIXED[39m[0m
+[0m [90m 8 | [39m[0m
+[0m [90m 9 | [39m[36mconst[39m prisma [33m=[39m [36mnew[39m [33mPrismaClient[39m()[33m;[39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:25:9[39m[24m - [31m[1merror[22m[39m [90mTS2353[39m: Object literal may only specify known properties, and 'seller' does not exist in type 'UserSelect<DefaultArgs>'.
+
+[0m [90m 23 | [39m        email[33m:[39m [36mtrue[39m[33m,[39m[0m
+[0m [90m 24 | [39m        role[33m:[39m [36mtrue[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 25 | [39m        seller[33m:[39m {[0m
+[0m [90m    | [39m        [31m[1m^[22m[39m[0m
+[0m [90m 26 | [39m          select[33m:[39m {[0m
+[0m [90m 27 | [39m            status[33m:[39m [36mtrue[39m[33m,[39m[0m
+[0m [90m 28 | [39m          }[33m,[39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:37:26[39m[24m - [31m[1merror[22m[39m [90mTS2339[39m: Property 'seller' does not exist on type '{ name: string; id: string; email: string; password: string; role: string; createdAt: Date; updatedAt: Date; }'.
+
+[0m [90m 35 | [39m      email[33m:[39m user[33m.[39memail[33m,[39m[0m
+[0m [90m 36 | [39m      role[33m:[39m user[33m.[39mrole[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 37 | [39m      sellerStatus[33m:[39m user[33m.[39mseller[33m?[39m[33m.[39mstatus [33m?[39m[33m?[39m [36mnull[39m[33m,[39m[0m
+[0m [90m    | [39m                         [31m[1m^[22m[39m[0m
+[0m [90m 38 | [39m    }))[33m;[39m[0m
+[0m [90m 39 | [39m  }[33m,[39m[0m
+[0m [90m 40 | [39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:59:19[39m[24m - [31m[1merror[22m[39m [90mTS2339[39m: Property 'seller' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+
+[0m [90m 57 | [39m    })[][0m
+[0m [90m 58 | [39m  [33m>[39m [33m=>[39m {[0m
+[0m[31m[1m>[22m[39m[90m 59 | [39m    [36mreturn[39m prisma[33m.[39mseller[33m.[39mfindMany({[0m
+[0m [90m    | [39m                  [31m[1m^[22m[39m[0m
+[0m [90m 60 | [39m      where[33m:[39m { status[33m:[39m [33mSellerStatus[39m[33m.[39m[33mPENDING[39m }[33m,[39m[0m
+[0m [90m 61 | [39m      include[33m:[39m {[0m
+[0m [90m 62 | [39m        user[33m:[39m {[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:81:33[39m[24m - [31m[1merror[22m[39m [90mTS2339[39m: Property 'seller' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+
+[0m [90m 79 | [39m      [33m:[39m [33mSellerStatus[39m[33m.[39m[33mREJECTED[39m[33m;[39m[0m
+[0m [90m 80 | [39m[0m
+[0m[31m[1m>[22m[39m[90m 81 | [39m    [36mconst[39m seller [33m=[39m await prisma[33m.[39mseller[33m.[39mfindUnique({[0m
+[0m [90m    | [39m                                [31m[1m^[22m[39m[0m
+[0m [90m 82 | [39m      where[33m:[39m { id[33m:[39m sellerId }[33m,[39m[0m
+[0m [90m 83 | [39m    })[33m;[39m[0m
+[0m [90m 84 | [39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:89:19[39m[24m - [31m[1merror[22m[39m [90mTS2339[39m: Property 'seller' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+
+[0m [90m 87 | [39m    }[0m
+[0m [90m 88 | [39m[0m
+[0m[31m[1m>[22m[39m[90m 89 | [39m    [36mreturn[39m prisma[33m.[39mseller[33m.[39mupdate({[0m
+[0m [90m    | [39m                  [31m[1m^[22m[39m[0m
+[0m [90m 90 | [39m      where[33m:[39m { id[33m:[39m sellerId }[33m,[39m[0m
+[0m [90m 91 | [39m      data[33m:[39m { status[33m:[39m newStatus }[33m,[39m[0m
+[0m [90m 92 | [39m    })[33m;[39m[0m
+
+[4m[34mapps\backend\admin-service\src\app\services\admin.service.ts:101:14[39m[24m - [31m[1merror[22m[39m [90mTS2339[39m: Property 'seller' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+
+[0m [90m  99 | [39m    [36mconst[39m [userCount[33m,[39m sellerCount] [33m=[39m await [33mPromise[39m[33m.[39mall([[0m
+[0m [90m 100 | [39m      prisma[33m.[39muser[33m.[39mcount()[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 101 | [39m      prisma[33m.[39mseller[33m.[39mcount()[33m,[39m[0m
+[0m [90m     | [39m             [31m[1m^[22m[39m[0m
+[0m [90m 102 | [39m    ])[33m;[39m[0m
+[0m [90m 103 | [39m[0m
+[0m [90m 104 | [39m    [36mreturn[39m { userCount[33m,[39m sellerCount }[33m;[39m[0m
+
+Found 9 errors.
