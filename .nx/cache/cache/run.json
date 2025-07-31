@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx build admin-service",
+    "startTime": "2025-07-31T11:20:18.474Z",
+    "endTime": "2025-07-31T11:20:29.490Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "admin-service:build:production",
+      "target": "build",
+      "projectName": "admin-service",
+      "hash": "13479514499335614614",
+      "startTime": "2025-07-31T11:20:18.582Z",
+      "endTime": "2025-07-31T11:20:29.478Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}
