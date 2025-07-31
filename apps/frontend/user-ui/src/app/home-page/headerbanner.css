@@ -1,0 +1,97 @@
+
+
+.banner{
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin:30px 0px;
+  gap:0px;
+  width: 100%;
+}
+.section-1{
+    
+  
+    gap:30px;
+    padding:0px 30px;
+    width:35%;
+    background:var(--lightbackground);
+    border-radius: 10px;
+    display: flex;
+
+    height:400px;
+     background:url('../../assets/Group\ 5.png')no-repeat center/cover ;
+
+}
+/* .section-1 h3,.section-2 h3{
+    padding:5px 0px;
+    font-size:32px;
+    font-family: 'Radhika Trial', sans-serif;
+    font-weight: 400;
+  
+} */
+/* .section-1 p,.section-2 p{
+       padding:5px 0px;
+      color:var(--grey);
+    font-size:16px;
+    font-family: 'Radhika Trial', sans-serif;
+    font-weight: 400;
+} */
+.content{
+    transform: translateY(5%);
+}
+
+.section-2{
+        padding:25px 45px;
+    width:65%;
+    border-radius: 10px;;
+     background:var(--lightbackground);
+height:400px;
+display: flex;
+align-items:center;
+   background:url('../../assets/Group\ 6.png')no-repeat center center/cover;
+     
+}
+/* .content{
+    transform: translateY(40%);
+}
+.images{
+  align-self: flex-end;
+  float:right; 
+
+}
+
+.content-part{
+transform: translateY(40%);
+}
+.image-1{
+    float:right;
+ 
+} */
+ @media(max-width:600px){
+    .banner{
+  display: flex;
+ flex-direction: column;
+  margin:40px 0px;
+  gap:15px;
+}
+.section-1{
+    
+  
+   
+    width:100%;
+ 
+
+    height:auto;
+    
+}
+.section-2{
+        padding:25px;
+    width:100%;
+    border-radius: 10px;;
+     background:var(--lightbackground);
+height:auto;
+
+   background:url('../../assets/Group\ 6.png')no-repeat center center/cover;
+     
+}
+ }

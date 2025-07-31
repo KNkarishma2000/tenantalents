@@ -1,0 +1,137 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal{
+    background: white;
+    border: 1px solid var(--primary);
+    max-width:500px;
+    position: relative;
+    width:100%;
+    border-radius: 10px;;
+    padding:15px;
+}
+.modalheader{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.modalheader h2,.reviewtextarea h2{
+    font-size:20px;
+    color:var(--secondary);
+    font-weight:500;
+
+
+}
+.reviewtextarea h2{
+    text-align: left;
+    margin-bottom: 5px;
+}
+.productinfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    background:var(--lightbackground);
+    border-radius:10px;
+    margin:10px;
+    padding:10px;
+}
+.productinfo h3{
+    font-size: 13px;
+    color:var(--grey)
+}
+.headingstar h2{
+  color: var(--grey);
+    font-size:15px;
+    
+}
+.ratingform{
+    text-align: center;
+
+}
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+}
+
+
+.close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.product-info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+
+.star-icon {
+  transition: color 0.2s;
+}
+
+.review-textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline:none;
+}
+
+.upload-box {
+  border: 2px dashed var(--lightgrey);
+  border-radius: 6px;
+  padding:30px 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
+}
+.upload-box p{
+  font-size: 14px;;
+  color:var(--grey)
+}
+
+.file-name {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.reviewsubmit{
+  width: 100%;
+  margin-top: 1rem;
+  align-items: center !important;
+  display: flex !important;
+  text-align: center  !important;
+  justify-content: center !important;
+  
+}
