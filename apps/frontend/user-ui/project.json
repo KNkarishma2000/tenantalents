@@ -1,0 +1,24 @@
+{
+  "name": "user-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/frontend/user-ui",
+  "sourceRoot": "apps/frontend/user-ui/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "user-ui:build",
+        "dev": true
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+       "outputPath": "dist/apps/frontend/user-ui"
+      }
+    }
+  },
+  "tags": []
+}

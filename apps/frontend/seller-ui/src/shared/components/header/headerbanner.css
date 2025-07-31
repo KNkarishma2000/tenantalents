@@ -1,0 +1,62 @@
+.headerbanner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0px 20px;
+}
+
+.searchbar{
+  width:90%;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin:20px 0px;
+  padding: 0px;;
+  justify-content: space-between;
+border: 1px solid var(--primary);
+ 
+}
+.search-input{
+       
+   font-size: 15px;
+  color:var(--lightgrey);
+  padding:8px 8px;
+
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.searchbar input{
+    margin:0px;
+}
+.searchbar .background-button{
+    padding:13px 15px;
+    margin: 0px;
+}
+.rightside{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 60%;
+  gap:20px;
+}
+.search-container{
+  width: 40%;
+}
+.supportbutton{
+  width: 24px;
+  height: 24px;
+}
+.rightside .account{
+  justify-content: center;
+  display: flex;
+  gap:10px;
+  font-size: 16px;
+}
+.rightside button svg {
+  width: 20px;        /* Adjust icon size */
+  height: 20px;
+    /* Add spacing between text and icon */
+ 
+}
