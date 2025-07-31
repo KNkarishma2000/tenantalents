@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RefundReason {
+  DAMAGED_ITEM
+  WRONG_ITEM
+  NOT_DELIVERED
+  BUYER_CHANGED_MIND
+  OTHER
+}
+
+enum RefundStatus {
+  REQUESTED     // Created by buyer
+  APPROVED      // Verified by seller/admin
+  REJECTED      // Declined with reason
+  REFUNDED      // Amount returned to buyer
+  CANCELLED     // Buyer or admin cancelled
+}
+
+model RefundRequest {
+  id            String        @id @default(uuid())
+  orderItemId   String                      // References item from order-service
+  userId        String                      // Buyer who requested refund
+  sellerId      String                      // Related seller
+  reason        RefundReason
+  status        RefundStatus  @default(REQUESTED)
+  comment       String?                     // Optional buyer message
+  attachmentUrl String?                     // Optional proof image (MinIO)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  resolvedAt    DateTime?                   // Set when resolved
+
+  @@index([userId])
+  @@index([sellerId])
+  @@index([orderItemId])
+  @@index([status])
+}
