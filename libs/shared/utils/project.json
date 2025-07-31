@@ -1,0 +1,12 @@
+{
+  "name": "shared-utils",
+  "root": "libs/shared/utils",
+  "sourceRoot": "libs/shared/utils/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}
