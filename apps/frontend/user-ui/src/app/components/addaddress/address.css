@@ -1,0 +1,74 @@
+.address-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+   padding: 0px 20px;
+   padding-bottom: 20px;
+   
+    
+}
+.addressmain{
+ background-color: var(--lightbackground);
+    border-radius: 10px;
+    padding: 20px 0px;;
+   
+}
+
+.address-bar{
+    border:1px solid var(--grey);
+    border-radius: 10px;
+    padding:10px;
+    margin:0px 20px;
+}
+.addressheading{
+    color:var(--secondary);
+    font-size: 14px;
+    padding-bottom: 15px;;
+}
+.address{
+    font-size: 14px;
+    margin-bottom: 5px;
+    color:var(--grey);
+}
+.address-bar, .item-info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:20px;
+}
+.item-info p{
+    font-size: 14px;
+    color: var(--black);
+}
+.addressbuttons{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+}
+.addressbuttons button{
+    margin: 0px;;
+}
+.address-headername h2{
+    font-size: 20px;
+    color:black;
+}
+.addressright{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:space-between;
+}
+.address-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+   
+    /* gap:40px; */
+    /* margin:0px 20px; */
+}
+.addressleft{
+    width:60%;
+}

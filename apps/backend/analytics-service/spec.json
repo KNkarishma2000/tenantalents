@@ -1,0 +1,8 @@
+{
+  "name": "analytics-service",
+  "type": "microservice",
+  "version": "1.0.0",
+  "description": "TODO: Add description for analytics-service",
+  "owner": "TODO: Add owner/team for analytics-service",
+  "tags": ["backend"]
+}

@@ -1,0 +1,17 @@
+{
+    "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "../../dist/out-tsc/libs/shared/kafka",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/types": [
+        "../../types/src/index"
+      ]
+    },
+    
+  }
+}

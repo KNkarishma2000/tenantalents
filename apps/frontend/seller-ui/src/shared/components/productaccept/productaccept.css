@@ -1,0 +1,98 @@
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  width: 100%;                  /* ⬅ Ensures full width */
+  box-sizing: border-box;
+}
+
+.product-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 2;
+  min-width: 220px;
+}
+
+.product-section img {
+  border-radius: 8px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.produtdetails {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 190px auto; /* Quantity, Price, City, Status tags */
+  align-items: center;
+  gap: 10px;
+  flex: 3;
+  width: 100%;
+  min-width: 50px;
+  font-size: 14px;
+}
+
+/* Optional: Make price and quantity right-aligned for better look */
+.produtdetails p:nth-child(1) {
+  font-weight: bold;
+}
+
+.produtdetails p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Status tags remain flexible */
+.status-tags {
+  
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+gap:10px;
+  /* flex-wrap: wrap; */
+}
+
+
+
+
+
+.status-tags span{
+font-family: 'Radhika Trial', sans-serif;
+    font-weight: 400;
+    font:15px;
+}
+/* .status-tags span {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  font-weight: 600;
+} */
+
+.productstatus {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  flex: 2;
+  min-width: 280px;
+}
+
+.product-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons */
+.orderprice{
+  font-weight: 400;
+  font-size: 14px;
+  
+}

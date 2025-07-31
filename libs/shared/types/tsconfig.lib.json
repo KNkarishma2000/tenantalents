@@ -1,0 +1,29 @@
+// {
+//     "extends": "./tsconfig.json",
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "rootDir": "src/lib",
+//     "outDir": "../../dist/out-tsc/libs/shared/types",
+//     "composite": true,
+//     "declaration": true,
+//     "declarationMap": true
+//   }
+// }
+
+
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src/lib",
+    "outDir": "../../dist/out-tsc/libs/shared/types",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": [
+    "src/lib/**/*.ts",
+    "src/lib/**/*.d.ts",
+    "../../shared/types/**/*.d.ts"
+  ]
+}

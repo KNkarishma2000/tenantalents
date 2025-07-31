@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "rootDir": "src/lib",
+    "outDir": "../../dist/out-tsc/libs/shared/error",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}

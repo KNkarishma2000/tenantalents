@@ -1,0 +1,12 @@
+{
+  "name": "shared-logger",
+  "root": "libs/shared/logger",
+  "sourceRoot": "libs/shared/logger/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}

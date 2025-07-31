@@ -1,0 +1,16 @@
+{
+  "extends": "../../../tsconfig.base.json",  // or ../../../tsconfig.json if you have it there
+  "compilerOptions": {
+    "rootDir": "src/lib",
+    "outDir": "../../dist/out-tsc/libs/shared/minio",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ]
+}

@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// === DATABASE SOURCE ===
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Represents the traffic source of a session
+enum TrafficSource {
+  DIRECT       // No referrer
+  ORGANIC      // Search engine traffic
+  SOCIAL       // Facebook, Instagram, etc.
+  EMAIL        // Newsletter, transactional email
+  REFERRAL     // External link
+  PAID_AD      // Paid campaign (Google/Facebook ads)
+}
+
+/// Represents the type of event being tracked
+enum AnalyticsEventType {
+  PAGE_VIEW
+  PRODUCT_VIEW
+  ADD_TO_CART
+  PURCHASE
+  SIGNUP
+}
+
+/// Captures a user session across multiple pages or actions
+model Session {
+  id             String          @id @default(uuid())
+  userId         String?         // Nullable: not logged in
+  ipAddress      String?
+  userAgent      String?
+  startedAt      DateTime        @default(now())
+  endedAt        DateTime?
+
+  source         TrafficSource   @default(DIRECT)
+
+  events         AnalyticsEvent[]
+
+  @@index([userId])
+  @@index([startedAt])
+}
+
+/// Captures an analytics event (pageview, click, conversion)
+model AnalyticsEvent {
+  id          String              @id @default(uuid())
+  sessionId   String
+  eventType   AnalyticsEventType
+  pageUrl     String              // URL where the event occurred
+  referrer    String?             // Optional referrer
+  productId   String?             // Optional (used for PRODUCT_VIEW)
+  createdAt   DateTime            @default(now())
+
+  session     Session             @relation(fields: [sessionId], references: [id])
+
+  @@index([eventType])
+  @@index([productId])
+  @@index([createdAt])
+}
+
+/// Aggregated daily page views (optional table for faster dashboards)
+model DailyPageView {
+  id        String   @id @default(uuid())
+  date      DateTime
+  pageUrl   String
+  count     Int      @default(0)
+
+  @@unique([date, pageUrl])
+  @@index([date])
+}

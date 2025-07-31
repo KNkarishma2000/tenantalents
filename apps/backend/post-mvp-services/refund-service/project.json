@@ -1,0 +1,70 @@
+{
+  "name": "refund-service",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/post-mvp-services/refund-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/backend/post-mvp-services/refund-service",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/backend/post-mvp-services/refund-service/src/main.ts",
+        "tsConfig": "apps/backend/post-mvp-services/refund-service/tsconfig.app.json",
+        "assets": ["apps/backend/post-mvp-services/refund-service/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/esbuild:esbuild",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "refund-service:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "refund-service:build:development"
+        },
+        "production": {
+          "buildTarget": "refund-service:build:production"
+        }
+      }
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t refund-service -f apps/backend/refund-service/Dockerfile ."
+      }
+    }
+  }
+}

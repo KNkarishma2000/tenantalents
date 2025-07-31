@@ -1,0 +1,8 @@
+{
+  "name": "order-service",
+  "type": "microservice",
+  "version": "1.0.0",
+  "description": "TODO: Add description for order-service",
+  "owner": "TODO: Add owner/team for order-service",
+  "tags": ["backend"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "shared-kafka",
+  "root": "libs/shared/kafka",
+  "sourceRoot": "libs/shared/kafka/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"],
+  "implicitDependencies": ["shared-logger"]
+}

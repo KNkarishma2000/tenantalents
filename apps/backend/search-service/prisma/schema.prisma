@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// === DATABASE SOURCE ===
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//
+// MODELS
+//
+
+/// Logs every keyword searched by users (logged-in or anonymous)
+model SearchLog {
+  id          String   @id @default(uuid())          // Unique ID for each search log
+  keyword     String                                 // User-entered search term
+  userId      String?                                // FK to user if logged in (for personalization)
+  sessionId   String?                                // Optional session or device ID for anonymous users
+  sourceIp    String?                                // Optional IP address (for abuse detection)
+  deviceType  String?                                // Optional info: "mobile", "desktop", "app"
+  resultCount Int?                                   // Optional: number of search results returned
+  createdAt   DateTime @default(now())               // Timestamp of search
+
+  @@index([keyword])
+  @@index([userId])
+  @@index([createdAt])
+}

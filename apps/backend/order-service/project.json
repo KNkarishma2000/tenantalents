@@ -1,0 +1,65 @@
+{
+  "name": "order-service",
+  "sourceRoot": "apps/backend/order-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/backend/order-service",
+        "main": "apps/backend/order-service/src/main.ts",
+        "tsConfig": "apps/backend/order-service/tsconfig.app.json",
+        "assets": [],
+        "generatePackageJson": true,
+        "bundle": true,
+        "thirdParty": false,
+        "format": ["cjs"]
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "order-service:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "order-service:build:development"
+        },
+        "production": {
+          "buildTarget": "order-service:build:production"
+        }
+      }
+    },
+
+    "lint": {
+      "executor": "nx:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/backend/order-service/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "nx:jest",
+      "options": {
+        "jestConfig": "apps/backend/order-service/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t order-service -f apps/backend/order-service/Dockerfile ."
+      }
+    }
+    },
+    "tags": ["type:service"]
+  }
+  
+

@@ -1,0 +1,43 @@
+// Generates Prisma client for Node.js/TypeScript
+generator client {
+  provider = "prisma-client-js"
+}
+
+// PostgreSQL datasource for isolated email-service DB
+// === DATABASE SOURCE ===
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//
+// ENUM: EmailEventType
+//
+// Defines the types of email triggers supported.
+// Can be extended as new workflows are introduced.
+//
+enum EmailEventType {
+  registration           // User registration confirmation
+  otp                    // OTP for login or sensitive actions
+  order_confirmation     // Email sent after successful order
+  invoice                // PDF invoice attached email
+}
+
+//
+// MODEL: EmailLog
+//
+// Stores each email sent for audit, debugging, or retry logic.
+//
+model EmailLog {
+  id         String         @id @default(uuid())         // Unique email log ID
+  to         String                                         // Recipient email address
+  subject    String                                         // Subject line of the email
+  body       String                                         // Raw/plaintext or rendered body
+  sentAt     DateTime       @default(now())                // When the email was sent
+  eventType  EmailEventType                                // Why the email was triggered
+
+  // Indexes to support querying/filtering/reporting
+  @@index([to])
+  @@index([eventType])
+  @@index([sentAt])
+}

@@ -1,0 +1,22 @@
+.deliverylocation{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap:30px;
+    width: 100%;
+}
+.checkoutright{
+    width:30%;
+}
+.checkoutleft{
+    width: 70%;;
+}
+.checkoutright .subtotal{
+    padding:15px 0px;
+}
+.checkoutright .subtotal-section{
+    margin:0px;
+}
+.checkoutright .quantitycard{
+    margin-top:30px;
+}

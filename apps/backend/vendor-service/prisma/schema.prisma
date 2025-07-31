@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Image {
+  id      String  @id @default(uuid()) @map("_id") @db.Uuid
+  file_id String  @unique
+  url     String
+  userId  String? @unique @db.Uuid 
+  user    User?   @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id        String   @id @default(uuid()) @map("_id") @db.Uuid
+  name      String
+  email     String   @unique
+  password  String?
+  role      UserRole
+  following String[] @default([]) @db.Text
+  avatar    Image?
+  seller    Seller?  @relation(fields: [sellerId], references: [id])
+  sellerId  String?  @unique @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(6)
+}
+
+model Seller {
+  id         String        @id @default(uuid()) @map("_id") @db.Uuid
+  name       String
+  email      String        @unique
+  phone_number String
+  country    String
+  password   String
+  stripeId   String?
+  status     SellerStatus  @default(PENDING)
+  user       User?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+}
+
+enum SellerStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum UserRole {
+  USER
+  VENDOR
+  ADMIN
+}

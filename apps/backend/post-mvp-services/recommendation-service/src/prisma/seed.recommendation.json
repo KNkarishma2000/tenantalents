@@ -1,0 +1,14 @@
+[
+  {
+    "userId": "user-001",
+    "productId": "prod-101",
+    "reason": "Trending Product",
+    "score": 0.95
+  },
+  {
+    "userId": "user-002",
+    "productId": "prod-202",
+    "reason": "Based on your search",
+    "score": 0.89
+  }
+]

@@ -1,0 +1,7 @@
+export interface ProductRatedEvent {
+  productId: string;
+  userId: string;
+  rating: number;
+  review?: string;
+  createdAt: string;
+}

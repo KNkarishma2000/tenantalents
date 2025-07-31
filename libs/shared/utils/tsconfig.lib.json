@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "../../../dist/libs/shared/utils",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "admin-service",
+  "type": "microservice",
+  "version": "1.0.0",
+  "description": "TODO: Add description for admin-service",
+  "owner": "TODO: Add owner/team for admin-service",
+  "tags": ["backend"]
+}

@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "../",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"]
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "../libs/shared/minio/src/**/*" // ✅ include minio files
+  ]
+}

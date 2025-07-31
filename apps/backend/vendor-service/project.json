@@ -1,0 +1,63 @@
+{
+  "name": "vendor-service",
+  "sourceRoot": "apps/backend/vendor-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/backend/vendor-service",
+        "main": "apps/backend/vendor-service/src/main.ts",
+        "tsConfig": "apps/backend/vendor-service/tsconfig.app.json",
+        "assets": [],
+        "generatePackageJson": true,
+        "bundle": true,
+        "thirdParty": false,
+        "format": ["cjs"]
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "vendor-service:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "vendor-service:build:development"
+        },
+        "production": {
+          "buildTarget": "vendor-service:build:production"
+        }
+      }
+    },
+
+    "lint": {
+      "executor": "nx:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/backend/vendor-service/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "nx:jest",
+      "options": {
+        "jestConfig": "apps/backend/vendor-service/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t vendor-service -f apps/backend/vendor-service/Dockerfile ."
+      }
+    }
+  },
+  "tags": ["type:service"]
+}

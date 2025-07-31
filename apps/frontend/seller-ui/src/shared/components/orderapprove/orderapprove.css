@@ -1,0 +1,44 @@
+.approvebuttons{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+.orderapprove-top{
+     display:flex;
+     gap:20px;
+    align-items:center;
+    justify-content:flex-start;
+}
+.tabel-stylings {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 14px;
+
+}
+
+.tabel-stylings td {
+  padding: 12px 16px;
+ 
+  text-align: left;
+}
+
+/* Style the header row (first row in tbody) */
+.tabel-stylings tr:first-child td {
+
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--grey);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+.tabel-stylings tr:not(:first-child) td {
+font-weight: 600;
+  color: var(--black-grey);
+   font-size: 15px;
+}
+.productimage img{
+  border-radius: 10px;
+  border: 1px solid var(--lightgrey);
+}

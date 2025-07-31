@@ -1,0 +1,63 @@
+{
+  "name": "payment-service",
+  "sourceRoot": "apps/backend/payment-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/backend/payment-service",
+        "main": "apps/backend/payment-service/src/main.ts",
+        "tsConfig": "apps/backend/payment-service/tsconfig.app.json",
+        "assets": [],
+        "generatePackageJson": true,
+        "bundle": true,
+        "thirdParty": false,
+        "format": ["cjs"]
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "payment-service:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "payment-service:build:development"
+        },
+        "production": {
+          "buildTarget": "payment-service:build:production"
+        }
+      }
+    },
+
+    "lint": {
+      "executor": "nx:eslint",
+      "options": {
+        "lintFilePatterns": ["pps/backend/payment-service/src/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "nx:jest",
+      "options": {
+        "jestConfig": "apps/backend/payment-service/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build -t payment-service -f apps/backend/payment-service/Dockerfile ."
+      }
+    }
+    },
+    "tags": ["type:service"]
+  }

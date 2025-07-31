@@ -1,0 +1,11 @@
+import axios from "axios";
+
+const axiosInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000", // update to your API base URL
+  headers: {
+    "Content-Type": "application/json",
+  },
+  withCredentials: true, // optional: only if you're using cookies/session
+});
+
+export default axiosInstance;

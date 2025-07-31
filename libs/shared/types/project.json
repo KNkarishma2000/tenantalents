@@ -1,0 +1,12 @@
+{
+  "name": "shared-types",
+  "root": "libs/shared/types",
+  "sourceRoot": "libs/shared/types/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"]
+}

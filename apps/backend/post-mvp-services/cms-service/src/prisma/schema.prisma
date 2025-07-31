@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PageType {
+  TERMS_AND_CONDITIONS
+  PRIVACY_POLICY
+  ABOUT_US
+  FAQ
+  CUSTOM    // Any other CMS-defined page
+}
+
+model Page {
+  id          String    @id @default(uuid())
+  title       String    // Page title (e.g., "Terms & Conditions")
+  slug        String    @unique        // URL-friendly slug (e.g., "terms")
+  type        PageType                 
+  content     String    // Full HTML or markdown body
+  isPublished Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}

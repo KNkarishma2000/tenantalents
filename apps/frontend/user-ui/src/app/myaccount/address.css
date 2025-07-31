@@ -1,0 +1,91 @@
+
+.accountpagemain{
+    margin:20px 0px;
+}
+.accountpagemain{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap:30px;
+    width: 100%;;
+}
+.accountpage-leftsection{
+    width: 80%;
+}
+.accountpage-right{
+    display: flex;
+    align-items:center;
+    justify-content: flex-end;
+    /* width:20%; */
+    border-radius: 10px;
+    
+}
+.accountpage-right .menu-left{
+    width: 300px;
+    
+}
+.accountpage-right .menu-left button{
+    padding:10px 45px;
+    justify-content: space-between;
+  
+   
+}
+.accountpage-right .menu-left .background-button{
+    justify-content: space-between;
+    display: flex;
+    
+}
+.accountpage-right img{
+    border-radius: 10px;
+    background-color: var(--lightbackground);
+}
+.accountheader{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:20px;
+}
+.accountname{
+    padding:10px 20px;
+    background-color: #12009D1A;
+    border-radius: 10px;;
+}
+.accountdetailsheader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profiledetails{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start ;
+    gap:20px;
+    width: 100%;
+}
+.first-column {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:20px;
+    margin: 10px 0px;
+    width: 100%;
+
+}
+.first-column input{
+    width: 100%;
+    background-color: white;
+}
+.acountdetails{
+    
+    background-color: var(--lightbackground);
+    border-radius: 10px;
+    padding:20px;;
+    margin:30px 0px;
+    margin-top:0px;
+}
+.profiledetailsright{
+    width:90%;
+}
+.profiledetailsleft{
+    width:10%;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "shared-redis",
+  "root": "libs/shared/redis",
+  "sourceRoot": "libs/shared/redis/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:noop"
+    }
+  },
+  "tags": ["scope:shared", "type:lib"],
+  "implicitDependencies": ["shared-logger"]
+}
