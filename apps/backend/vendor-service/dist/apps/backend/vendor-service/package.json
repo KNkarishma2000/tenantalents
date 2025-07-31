@@ -1,0 +1,27 @@
+{
+  "name": "vendor-service",
+  "version": "0.0.1",
+  "dependencies": {
+    "@prisma/client": "6.12.0",
+    "@redis/bloom": "5.6.1",
+    "@redis/client": "5.6.1",
+    "@redis/json": "5.6.1",
+    "@redis/search": "5.6.1",
+    "@redis/time-series": "5.6.1",
+    "dotenv": "17.2.1",
+    "express": "4.21.2",
+    "ioredis": "5.6.1",
+    "jsonwebtoken": "9.0.2",
+    "kafkajs": "2.2.4",
+    "minio": "8.0.5",
+    "multer": "2.0.2",
+    "redis": "5.6.1",
+    "swagger-jsdoc": "6.2.8",
+    "swagger-ui-express": "5.0.1",
+    "winston": "3.17.0",
+    "zod": "4.0.10"
+  },
+  "module": "./main.js",
+  "type": "module",
+  "main": "./main.js"
+}
