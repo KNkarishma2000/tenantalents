@@ -1,0 +1,17 @@
+{
+  "name": "shared-swagger",
+  "root": "libs/shared/swagger",
+  "sourceRoot": "libs/shared/swagger/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/libs/shared/swagger",
+        "main": "libs/shared/swagger/src/index.ts",
+        "tsConfig": "libs/shared/swagger/tsconfig.lib.json"
+      }
+    }
+  },
+  "tags": ["type:shared", "scope:swagger"]
+}
