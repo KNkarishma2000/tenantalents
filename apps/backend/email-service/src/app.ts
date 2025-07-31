@@ -7,7 +7,7 @@ import {
   helmetMiddleware,
   rateLimiterMiddleware,
   requestLoggerMiddleware,
-} from '@shared/middleware';
+} from '@shared/middlewares/middlewares';
 
 import emailRoutes from './app/routes/email.routes';
 

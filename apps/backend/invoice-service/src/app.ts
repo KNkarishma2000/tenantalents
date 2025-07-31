@@ -9,8 +9,8 @@ const app = express();
 
 // 🧩 Global Middleware
 app.use(express.json());
-app.use(corsMiddleware());
-app.use(helmetMiddleware());
+app.use(corsMiddleware);
+app.use(helmetMiddleware);
 
 // 📦 Routes
 app.use('/api/invoices', invoiceRoutes);

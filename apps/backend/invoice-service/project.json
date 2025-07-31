@@ -15,8 +15,7 @@
         "assets": [],
         "generatePackageJson": true,
         "bundle": true,
-        "thirdParty": false,
-        "format": ["cjs"]
+        "thirdParty": false
       },
       "configurations": {
         "development": {},

@@ -1,6 +1,6 @@
 import PDFDocument from 'pdfkit';
 import { minioClient } from '@shared/minio';
-import { prisma } from '../../prisma'; // Adjust path if you're not using @shared/prisma
+import { prisma } from '../../../prisma'; // Adjust path if you're not using @shared/prisma
 import { Readable } from 'stream';
 
 const bucket = process.env.MINIO_BUCKET || 'invoices';

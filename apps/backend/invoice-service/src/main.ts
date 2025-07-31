@@ -83,10 +83,10 @@ async function shutdown(exitCode = 0) {
 
   try {
     await prisma.$disconnect();
-    if (redisClient.status === 'ready') {
-      await redisClient.quit();
-      logger.info('✅ Redis disconnected');
-    }
+  if (redisClient.isReady) {
+  await redisClient.quit();
+  logger.info('✅ Redis disconnected');
+}
 
     await disconnectKafkaConsumer();
 

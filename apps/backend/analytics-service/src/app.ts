@@ -8,19 +8,22 @@ import '@shared/config/src/lib/env';
 import { env } from '@shared/config';
 import { logger } from '@shared/logger';
 import { connectRedis, redisClient } from '@shared/redis';
+import { Consumer } from 'kafkajs';
 import {
   getKafkaConsumer,
   disconnectKafkaConsumer,
   disconnectKafkaProducer,
-  type KafkaConsumer,
 } from '@shared/kafka';
+
+
+
 import { errorHandler, notFoundHandler } from '@shared/error';
 import { setupSwagger } from '@shared/swagger';
 import { authMiddleware } from '@shared/auth';
 import { ApiError } from '@shared/error';
 
 const app = express();
-let kafkaConsumer: KafkaConsumer | null = null;
+let kafkaConsumer: Consumer | null = null;
 let server: ReturnType<typeof app.listen> | null = null;
 let isShuttingDown = false;
 
@@ -115,16 +118,16 @@ async function shutdown() {
   }, 10000);
 
   try {
-    if (redisClient?.status !== 'end') {
-      await redisClient.quit();
-      logger.info('✅ Redis disconnected');
-    }
+    if (redisClient?.isOpen) {
+    await redisClient.quit();
+    logger.info('✅ Redis disconnected');
+  }
 
-    if (kafkaConsumer) {
-      await disconnectKafkaConsumer();
-      await disconnectKafkaProducer();
-      logger.info('✅ Kafka disconnected');
-    }
+  if (kafkaConsumer) {
+    await disconnectKafkaConsumer();
+    await disconnectKafkaProducer();
+    logger.info('✅ Kafka disconnected');
+  }
 
     if (server) {
       server.close(() => {

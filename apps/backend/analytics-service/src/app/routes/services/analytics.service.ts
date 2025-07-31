@@ -1,9 +1,9 @@
-// apps/analytics-service/src/services/analytics.service.ts
-
 import { PrismaClient } from '@prisma/client';
 
-// Handle Prisma singleton in dev
-const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
+// Handle Prisma singleton in development
+const globalForPrisma = globalThis as unknown as {
+  prisma?: PrismaClient;
+};
 
 const prisma =
   globalForPrisma.prisma ??
@@ -15,6 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
   globalForPrisma.prisma = prisma;
 }
 
+// Defines shape of returned summary object
 type MetricSummary = Record<string, number>;
 
 export const analyticsService = {
@@ -43,4 +44,19 @@ export const analyticsService = {
 
   /**
    * Get a summary of all metrics.
-   * Returns an object like: { "user_s_*
+   * Returns an object like: { "user_signup": 10, "product_view": 42 }
+   */
+ async getSummary(): Promise<MetricSummary> {
+  try {
+    const allMetrics: Metric[] = await prisma.metric.findMany();
+
+    return allMetrics.reduce<MetricSummary>((acc: MetricSummary, metric: Metric) => {
+      acc[metric.type] = metric.value;
+      return acc;
+    }, {});
+  } catch (error) {
+    console.error('❌ Failed to get metric summary:', error);
+    throw new Error('Failed to get metric summary');
+  }
+}
+};

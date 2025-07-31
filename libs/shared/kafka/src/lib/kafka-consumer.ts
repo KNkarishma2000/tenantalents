@@ -1,6 +1,6 @@
 import { Consumer, EachMessagePayload } from 'kafkajs';
 import { getKafkaConsumer } from './kafka-client'; // ✅ Corrected import
-import { logger } from '@shared/logger'; // Replace with console if needed
+import { logger } from '@shared/middlewares/logger/src/index'; // Replace with console if needed
 
 export interface KafkaConsumerConfig {
   groupId: string;

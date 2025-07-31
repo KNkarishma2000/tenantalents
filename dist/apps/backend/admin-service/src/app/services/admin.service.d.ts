@@ -1,4 +1,4 @@
-import { User, Seller, UserRole, SellerStatus } from '../../../../../../generated/prisma/client';
+import { User, Seller, UserRole, SellerStatus } from '@prisma/client';
 export declare const adminService: {
     getAllUsers: () => Promise<Array<{
         id: string;

@@ -7,9 +7,9 @@ import { logger } from '@shared/logger';
 import {
   corsMiddleware,
   helmetMiddleware,
- rateLimiterMiddleware as  rateLimiter,
-  requestLoggerMiddleware as requestLogger,
-} from '@shared/middlewares/middleware/src/index';
+  rateLimiter,
+  requestLogger,
+} from '@shared/middlewares';
 
 import cartRoutes from './app/routes/cart.routes';
 

@@ -55,3 +55,8 @@ enum UserRole {
   VENDOR
   ADMIN
 }
+model Metric {
+  id    String @id @default(uuid()) @map("_id") @db.Uuid
+  type  String @unique
+  value Int
+}

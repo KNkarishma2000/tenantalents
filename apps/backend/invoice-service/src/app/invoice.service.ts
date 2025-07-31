@@ -38,14 +38,12 @@ export const saveInvoice = async ({
     if (!bucketExists) {
       await minioClient.makeBucket(MinioBuckets.INVOICE);
     }
-
-    await uploadFile({
-      bucket: MinioBuckets.INVOICE,
-      objectName,
-      stream: fileStream,
-      size: stats.size,
-      contentType: MimeTypes.PDF,
-    });
+await uploadFile(
+  MinioBuckets.INVOICE,
+  objectName,
+  absolutePath,
+  { 'Content-Type': MimeTypes.PDF }
+);
 
     console.log(`✅ Uploaded invoice for order ${orderId} to MinIO`);
   } catch (error) {
