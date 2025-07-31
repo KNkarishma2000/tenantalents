@@ -1,0 +1,159 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "ecommerce",
+  "cli": {
+    "defaultBase": "main"
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "defaultProject": "vendor-service",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s"
+    ],
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+  },
+  "nxCloudId": "6854008314109e0548946e4d",
+  "plugins": [
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      },
+      "exclude": [
+        "apps/auth-service-e2e/**/*",
+        "apps/api-gateway-e2e/**/*"
+      ]
+    },
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    }
+  ],
+  "generators": {
+    "@nx/next": {
+      "application": {
+        "style": "tailwind",
+        "linter": "none"
+      }
+    }
+  },
+  "projects": {
+    "shared-auth": {
+      "tags": []
+    },
+    "shared-config": {
+      "tags": []
+    },
+    "shared-constants": {
+      "tags": []
+    },
+    "shared-email": {
+      "tags": []
+    },
+    "shared-error": {
+      "tags": []
+    },
+    "shared-kafka": {
+      "tags": []
+    },
+    "shared-logger": {
+      "tags": []
+    },
+    "shared-middlewares": {
+      "tags": []
+    },
+    "shared-minio": {
+      "tags": []
+    },
+    "shared-redis": {
+      "tags": []
+    },
+    "shared-swagger": {
+      "tags": []
+    },
+    "shared-types": {
+      "tags": []
+    },
+    "shared-utils": {
+      "tags": []
+    },
+    "user-service": {
+      "tags": ["scope:user"]
+    },
+    "product-service": {
+      "tags": ["scope:product"]
+    },
+    "order-service": {
+      "tags": ["scope:order"]
+    },
+    "rating-service": {
+      "tags": ["scope:rating"]
+    },
+    "email-service": {
+      "tags": ["scope:email"]
+    },
+    "payment-service": {
+      "tags": ["scope:payment"]
+    },
+    "search-service": {
+      "tags": ["scope:search"]
+    },
+    "cart-service": {
+      "tags": ["scope:cart"]
+    },
+    "admin-service": {
+      "tags": ["scope:admin"]
+    },
+    "invoice-service": {
+      "tags": ["scope:invoice"]
+    },
+    "analytics-service": {
+      "tags": ["scope:analytics"]
+    },
+    "vendor-service": {
+      "tags": ["scope:vendor"]
+    },
+    "user-ui": "apps/frontend/user-ui",
+    "seller-ui": "apps/frontend/seller-ui"
+  },
+  "tasksRunnerOptions": {
+    "no-cloud": {
+    "runner": "@nrwl/workspace/src/tasks-runner/default-tasks-runner",
+    "options": {}
+  }
+}
+}

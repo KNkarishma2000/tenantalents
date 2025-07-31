@@ -1,0 +1,177 @@
+
+# # 🚀 START COMMANDS
+
+# # Start Infrastructure (Postgres, Redis, Kafka, MinIO, Swagger, etc.)
+# docker compose -f docker-compose.infrastructure.yml --env-file .env up -d
+
+# # Start Microservices
+# docker compose -f docker-compose.microservices.yml --env-file .env up -d
+
+# # Start Both Together
+# docker compose -f docker-compose.infrastructure.yml -f docker-compose.microservices.yml --env-file .env up -d
+
+# # 🔄 REBUILD COMMANDS
+
+# # Rebuild All Images (No Cache)
+# docker compose -f docker-compose.infrastructure.yml -f docker-compose.microservices.yml build --no-cache
+
+# # Rebuild Only Microservices
+# docker compose -f docker-compose.microservices.yml build
+
+# # 🛑 STOP COMMANDS
+
+# # Stop Infrastructure
+# docker compose -f docker-compose.infrastructure.yml --env-file .env down
+
+# # Stop Microservices
+# docker compose -f docker-compose.microservices.yml --env-file .env down
+
+# # Stop Both and Remove Volumes
+# docker compose -f docker-compose.infrastructure.yml -f docker-compose.microservices.yml --env-file .env down -v
+
+# # 🧹 CLEANUP
+
+# # Remove Orphan Containers (if leftover)
+# docker compose -f docker-compose.microservices.yml --env-file .env up -d --remove-orphans
+
+# # ⚠️ IF PORT IS ALREADY IN USE
+
+# # Check which process is using the port (e.g., 3000)
+# lsof -i :3000
+
+# # Kill that process (replace <PID> with actual ID)
+# kill -9 <PID>
+
+# # OR change the exposed port in docker-compose:
+# # ports:
+# #   - "3100:3000"  # host:container
+# #
+
+# docker stop postgres-mvp
+# docker rm postgres-mvp
+
+
+
+version: "3.8"
+
+services:
+  user-service:
+    build: ../../apps/user-service
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../../apps/user-service/.env
+    depends_on:
+      - postgres
+      - redis
+      - kafka
+      - minio
+
+  product-service:
+    build: ../../apps/product-service
+    ports:
+      - "3001:3001"
+    env_file:
+      - ../../apps/product-service/.env
+    depends_on:
+      - postgres
+      - kafka
+
+  order-service:
+    build: ../../apps/order-service
+    ports:
+      - "3002:3002"
+    env_file:
+      - ../../apps/order-service/.env
+    depends_on:
+      - postgres
+      - kafka
+
+  rating-service:
+    build: ../../apps/rating-service
+    ports:
+      - "3003:3003"
+    env_file:
+      - ../../apps/rating-service/.env
+    depends_on:
+      - postgres
+      - kafka
+
+  email-service:
+    build: ../../apps/email-service
+    ports:
+      - "3004:3004"
+    env_file:
+      - ../../apps/email-service/.env
+    depends_on:
+      - kafka
+
+  payment-service:
+    build: ../../apps/payment-service
+    ports:
+      - "3005:3005"
+    env_file:
+      - ../../apps/payment-service/.env
+    depends_on:
+      - postgres
+      - kafka
+
+  search-service:
+    build: ../../apps/search-service
+    ports:
+      - "3006:3006"
+    env_file:
+      - ../../apps/search-service/.env
+    depends_on:
+      - kafka
+
+  cart-service:
+    build: ../../apps/cart-service
+    ports:
+      - "3007:3007"
+    env_file:
+      - ../../apps/cart-service/.env
+    depends_on:
+      - redis
+      - kafka
+
+  admin-service:
+    build: ../../apps/admin-service
+    ports:
+      - "3008:3008"
+    env_file:
+      - ../../apps/admin-service/.env
+    depends_on:
+      - postgres
+      - kafka
+
+  invoice-service:
+    build: ../../apps/invoice-service
+    ports:
+      - "3009:3009"
+    env_file:
+      - ../../apps/invoice-service/.env
+    depends_on:
+      - postgres
+      - kafka
+      - minio
+
+  analytics-service:
+    build: ../../apps/analytics-service
+    ports:
+      - "3010:3010"
+    env_file:
+      - ../../apps/analytics-service/.env
+    depends_on:
+      - kafka
+
+  vendor-service:
+    build: ../../apps/vendor-service
+    ports:
+      - "3011:3011"
+    env_file:
+      - ../../apps/vendor-service/.env
+    depends_on:
+      - postgres
+      - kafka
+
